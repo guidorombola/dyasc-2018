@@ -1,13 +1,7 @@
 package ar.edu.untref.dyasc;
 
 public class Fibonacci {
-    public static void main(String[] args) {
-        Fibonacci f = new Fibonacci();
-        int num = Integer.parseInt(args[0]);
-        int serie[] = f.desarrollarSerie(num);
-        System.out.println(f.mostrarSerie(serie, num));
-    }
-
+    
     public int[] desarrollarSerie(int n) {
         int[] serie = new int[n];
         if (n == 1) {
