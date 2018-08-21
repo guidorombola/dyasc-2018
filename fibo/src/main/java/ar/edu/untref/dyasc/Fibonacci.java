@@ -5,11 +5,7 @@ public class Fibonacci {
         Fibonacci f = new Fibonacci();
         int num = Integer.parseInt(args[0]);
         int serie[] = f.desarrollarSerie(num);
-        String salida = "fibo<" + num + ">:";
-        for (int i = 0; i < serie.length; i++) {
-            salida += " " + serie[i];
-        }
-        System.out.println(salida);
+        System.out.println(f.mostrarSerie(serie, num));
     }
 
     public int[] desarrollarSerie(int n) {
@@ -24,5 +20,13 @@ public class Fibonacci {
             serie[i] = serie[i - 1] + serie[i - 2];
         }
         return serie;
+    }
+    
+    public String mostrarSerie(int[] serie, int cantidadTerminos) {
+        String salida = "fibo<" + cantidadTerminos + ">:";
+        for (int i = 0; i < serie.length; i++) {
+            salida += " " + serie[i];
+        }
+        return salida;
     }
 }
