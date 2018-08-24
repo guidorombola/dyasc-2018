@@ -2,8 +2,8 @@ package ar.edu.untref.dyasc;
 
 public class MainFibonacci2 {
     public static void main(String[] args) {
-        char orientacion; 
-        char direccion;
+        char orientacion = ' '; 
+        char direccion = ' ';
         int cantidadTerminos = 0;
         if(args.length == 2) {
             String opcion = args[0].substring(0, 3);
