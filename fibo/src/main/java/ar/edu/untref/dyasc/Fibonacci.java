@@ -2,12 +2,12 @@ package ar.edu.untref.dyasc;
 
 public class Fibonacci {
     
-    public int[] desarrollarSerie(int n) {
-        int[] serie = new int[n];
-        if (n == 1) {
+    public int[] desarrollarSerie(int cantidadTerminos) {
+        int[] serie = new int[cantidadTerminos];
+        if (cantidadTerminos == 1) {
             serie[0] = 0;
-        }
-        if (n > 1) {
+        } else if (cantidadTerminos > 1) {
+            serie[0] = 0;
             serie[1] = 1;
         }
         for (int i = 2; i < serie.length; i++) {
@@ -16,8 +16,8 @@ public class Fibonacci {
         return serie;
     }
     
-    public String mostrarSerie(int[] serie, int cantidadTerminos) {
-        String salida = "fibo<" + cantidadTerminos + ">:";
+    public String mostrarSerie(int[] serie) {
+        String salida = "fibo<" + serie.length + ">:";
         for (int i = 0; i < serie.length; i++) {
             salida += " " + serie[i];
         }
