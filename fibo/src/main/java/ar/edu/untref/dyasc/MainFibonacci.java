@@ -5,6 +5,6 @@ public class MainFibonacci {
         Fibonacci f = new Fibonacci();
         int cantidadTerminos = Integer.parseInt(args[0]);
         int serie[] = f.desarrollarSerie(cantidadTerminos);
-        System.out.println(f.mostrarSerie(serie, cantidadTerminos));
+        System.out.println(f.mostrarSerie(serie));
     }
 }
