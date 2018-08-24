@@ -6,8 +6,8 @@ public class Fibonacci2 {
         int[] serie = new int[n];
         if (n == 1) {
             serie[0] = 0;
-        }
-        if (n > 1) {
+        } else if (n > 1) {
+            serie[0] = 0;
             serie[1] = 1;
         }
         for (int i = 2; i < serie.length; i++) {
