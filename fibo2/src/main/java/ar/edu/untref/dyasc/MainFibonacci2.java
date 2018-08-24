@@ -21,7 +21,7 @@ public class MainFibonacci2 {
         }
         Fibonacci2 f = new Fibonacci2();
         int[] serie = f.desarrollarSerie(cantidadTerminos);
-        System.out.println(f.mostrarSerie(serie, cantidadTerminos, orientacion, direccion));
+        System.out.println(f.mostrarSerie(serie, orientacion, direccion));
         
     }
     

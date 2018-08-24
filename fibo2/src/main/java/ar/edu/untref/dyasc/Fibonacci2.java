@@ -16,8 +16,8 @@ public class Fibonacci2 {
         return serie;
     }
     
-    public String mostrarSerie(int[] serie, int cantidadTerminos, char orientacion, char direccion) {
-        String salida = "fibo<" + cantidadTerminos + ">:";
+    public String mostrarSerie(int[] serie, char orientacion, char direccion) {
+        String salida = "fibo<" + serie.length + ">:";
         if(direccion == 'd') {
             for(int i = 0; i < serie.length; i++) {
                 if(orientacion == 'v') {
