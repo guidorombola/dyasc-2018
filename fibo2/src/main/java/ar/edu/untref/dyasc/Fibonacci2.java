@@ -20,20 +20,22 @@ public class Fibonacci2 {
         String salida = "fibo<" + serie.length + ">:";
         if(direccion == 'd') {
             for(int i = 0; i < serie.length; i++) {
-                if(orientacion == 'v') {
-                    salida += "\n" + serie[i];
-                } else {
-                    salida += " " + serie[i];                    
-                }
+                salida = mostrarSegunOrientacion(serie, i, orientacion, salida);
             }
         } else {
             for(int i = serie.length-1; i >= 0; i--) {
-                if(orientacion == 'v') {
-                    salida += "\n" + serie[i];
-                } else {
-                    salida += " " + serie[i];                    
-                }
+                salida = mostrarSegunOrientacion(serie, i, orientacion, salida);
             }
+        }
+        
+        return salida;
+    }
+    
+    public String mostrarSegunOrientacion(int[] serie, int indice, char orientacion, String salida) {
+        if(orientacion == 'h') {
+            salida += " " + serie[indice];
+        } else {
+            salida += "\n" + serie[indice];
         }
         
         return salida;
