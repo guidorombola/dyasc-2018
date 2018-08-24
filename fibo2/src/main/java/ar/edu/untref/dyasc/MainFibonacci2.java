@@ -11,7 +11,7 @@ public class MainFibonacci2 {
             direccion = args[0].charAt(4);
             if(!(opcion.equals("-o=") && (orientacion == 'v' || orientacion == 'h') && (direccion == 'd' || direccion == 'i'))) {
                 System.out.println("Opcion no valida");
-                System.exit(1);
+                return;
             }
             cantidadTerminos = Integer.parseInt(args[1]);
         } else {
