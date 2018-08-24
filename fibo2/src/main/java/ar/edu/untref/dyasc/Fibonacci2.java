@@ -2,11 +2,11 @@ package ar.edu.untref.dyasc;
 
 public class Fibonacci2 {
 
-    public int[] desarrollarSerie(int n) {
-        int[] serie = new int[n];
-        if (n == 1) {
+    public int[] desarrollarSerie(int cantidadTerminos) {
+        int[] serie = new int[cantidadTerminos];
+        if (cantidadTerminos == 1) {
             serie[0] = 0;
-        } else if (n > 1) {
+        } else if (cantidadTerminos > 1) {
             serie[0] = 0;
             serie[1] = 1;
         }
