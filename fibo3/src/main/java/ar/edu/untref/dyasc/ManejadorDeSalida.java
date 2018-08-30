@@ -16,20 +16,21 @@ public class ManejadorDeSalida {
     
     public void devolver() {
         Map<String, String> parametrosConfiguracion = this.configuracion.getParametros();
-        String salida = "fibo<"+this.configuracion.getCantidadDeTerminos()+">";
+        String salidaTitulo = "fibo<"+this.configuracion.getCantidadDeTerminos()+">";
+        String salidaSerie = "" + salidaTitulo;
         char orientacion = parametrosConfiguracion.get("-o=").charAt(0);
         if(parametrosConfiguracion.get("-m=").equals("s")){
-            salida += "s:" + mostrarSegunOrientacion(orientacion) + String.valueOf(sumarSerie(this.serie));
+            salidaSerie += "s:" + mostrarSegunOrientacion(orientacion) + String.valueOf(sumarSerie(this.serie));
         } else {
             char direccion = parametrosConfiguracion.get("-o=").charAt(1);
-            salida += ":" + mostrarSerie(this.serie, orientacion, direccion);
+            salidaSerie += ":" + mostrarSerie(this.serie, orientacion, direccion);
         }
         String nombreArchivo = parametrosConfiguracion.get("-f=");
         if(!(nombreArchivo.equals(""))) {
-            escribirEnArchivo(nombreArchivo, salida);
-            imprimirEnPantalla("guardado en "+ nombreArchivo);
+            escribirEnArchivo(nombreArchivo, salidaSerie);
+            imprimirEnPantalla(salidaTitulo +" guardado en "+ nombreArchivo);
         } else {
-            imprimirEnPantalla(salida);
+            imprimirEnPantalla(salidaSerie);
         }
         
     }
