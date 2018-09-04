@@ -13,26 +13,30 @@ public class ClienteRegistrado {
     }
     
     public void aniadirProducto(Producto prod, String mes) {
-        this.cuenta.aniadirCompraProducto(prod, mes);
+        this.cuenta.aniadirProducto(prod, mes);
+    }
+    
+    public void aniadirSuscripcion(ArticuloSuscribible suscripcion, String mes) {
+        this.cuenta.aniadirSuscripcion(suscripcion, mes);
     }
     
     public void aniadirSuscripcion(ArticuloSuscribible suscripcion) {
-        
+        this.cuenta.aniadirSuscripcion(suscripcion);
     }
     
-    public CuentaCorriente getCuenta() {
+    public CuentaCorriente obtenerCuenta() {
         return cuenta;
     }
     
-    public String getDireccion() {
+    public String obtenerDireccion() {
         return direccion;
     }
     
-    public int getId() {
+    public int obtenerId() {
         return id;
     }
     
-    public void setDireccion(String direccion) {
+    public void establecerDireccion(String direccion) {
         this.direccion = direccion;
     }
     

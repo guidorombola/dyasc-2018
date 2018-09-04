@@ -6,23 +6,28 @@ public class ArticuloSuscribible extends Producto {
     private int periodicidadMensual;
     private PeriodoSuscripcion periodo;
 
-    public ArticuloSuscribible(int id, float precio, String nombre, TipoArticuloSuscribible tipo, int periodicidadMensual, PeriodoSuscripcion periodo) {
+    public ArticuloSuscribible(int id, float precio, String nombre, TipoArticuloSuscribible tipo, 
+            int periodicidadMensual, PeriodoSuscripcion periodo) {
         super(id, precio, nombre);
         this.tipo = tipo;
         this.periodicidadMensual = periodicidadMensual;
         this.periodo = periodo;
     }
     
-    public PeriodoSuscripcion getPeriodo() {
+    public PeriodoSuscripcion obtenerPeriodo() {
         return periodo;
     }
     
-    public TipoArticuloSuscribible getTipo() {
+    public TipoArticuloSuscribible obtenerTipo() {
         return tipo;
     }
     
-    public int getPeriodicidadMensual() {
+    public int obtenerPeriodicidadMensual() {
         return periodicidadMensual;
+    }
+    
+    public void establecerPeriodo(PeriodoSuscripcion periodo) {
+        this.periodo = periodo;
     }
 
 }

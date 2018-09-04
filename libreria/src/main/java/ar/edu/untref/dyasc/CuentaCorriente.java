@@ -8,8 +8,6 @@ import java.util.Map;
 
 public class CuentaCorriente {
     
-    private static float descuentoPorRegistro = 0.95f;
-    private static float descuentoPorSuscripcionAnual = 0.8f;
     private Map<String, List<Producto>> productosSinSuscripcion;
     private Map<String, List<ArticuloSuscribible>> suscripciones;
     
@@ -28,17 +26,17 @@ public class CuentaCorriente {
         return this.calcularTotalProductosMensual(mes) + this.calcularTotalSuscripcionesMensual(mes);
     }
     
-    public void aniadirCompraProducto(Producto producto, String mes) {
+    public void aniadirProducto(Producto producto, String mes) {
         this.productosSinSuscripcion.get(mes).add(producto);
     }
     
-    public void aniadirCompraSuscripcion(ArticuloSuscribible suscripcion) {
+    public void aniadirSuscripcion(ArticuloSuscribible suscripcion) {
         for(List<ArticuloSuscribible> compras : this.suscripciones.values()) {
             compras.add(suscripcion);
         }
     }
     
-    public void aniadirCompraSuscripcion(ArticuloSuscribible suscripcion, String mes) {
+    public void aniadirSuscripcion(ArticuloSuscribible suscripcion, String mes) {
         this.suscripciones.get(mes).add(suscripcion);
     }
     
@@ -49,7 +47,7 @@ public class CuentaCorriente {
             Producto compra = itr.next();
             totalMensual += compra.obtenerPrecio();
         }
-        return totalMensual * descuentoPorRegistro;
+        return totalMensual * Libreria.obtenerDescuentoPorRegistro();
     }
     
     private float calcularTotalSuscripcionesMensual(String mes) {
@@ -58,14 +56,14 @@ public class CuentaCorriente {
         Iterator<ArticuloSuscribible> itr = this.suscripciones.get(mes).iterator();
         while(itr.hasNext()) {
             ArticuloSuscribible compra = itr.next();
-            if(compra.getPeriodo() == PeriodoSuscripcion.ANUAL) {
+            if(compra.obtenerPeriodo() == PeriodoSuscripcion.ANUAL) {
                 totalSuscripcionesAnuales += compra.obtenerPrecio();
             } else {
                 totalSuscripcionesMensuales += compra.obtenerPrecio();
             }
         }
-        return totalSuscripcionesAnuales * descuentoPorSuscripcionAnual + 
-                totalSuscripcionesMensuales * descuentoPorRegistro;
+        return totalSuscripcionesAnuales * Libreria.obtenerDescuentoPorSuscripcionAnual() + 
+                totalSuscripcionesMensuales * Libreria.obtenerDescuentoPorRegistro();
     }
     
     private float calcularTotalProductosAnual() {
