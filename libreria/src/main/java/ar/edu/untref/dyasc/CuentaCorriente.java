@@ -14,6 +14,7 @@ public class CuentaCorriente {
     public CuentaCorriente() {
         this.productosSinSuscripcion = new HashMap<String, List<Producto>>();
         this.suscripciones = new HashMap<String, List<ArticuloSuscribible>>();
+        this.inicializarMeses();
         this.inicializarListasProductos();
         this.inicializarListasSuscripciones();
     }
@@ -83,14 +84,22 @@ public class CuentaCorriente {
     }
     
     private void inicializarListasSuscripciones() {
-        for(List<ArticuloSuscribible> compras : this.suscripciones.values()) {
-            compras = new ArrayList<ArticuloSuscribible>();
+        for(String mes : this.suscripciones.keySet()) {
+            this.suscripciones.put(mes, new ArrayList<ArticuloSuscribible>());
         }
     }
     
     private void inicializarListasProductos() {
-        for(List<Producto> compras : this.productosSinSuscripcion.values()) {
-            compras = new ArrayList<Producto>();
+        for(String mes : this.productosSinSuscripcion.keySet()) {
+            this.productosSinSuscripcion.put(mes, new ArrayList<Producto>());
+        }
+    }
+    
+    private void inicializarMeses() {
+        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+        for(String mes: meses) {
+            this.productosSinSuscripcion.put(mes, null);
+            this.suscripciones.put(mes, null);
         }
     }
 
