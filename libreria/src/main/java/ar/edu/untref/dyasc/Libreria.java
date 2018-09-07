@@ -1,5 +1,6 @@
 package ar.edu.untref.dyasc;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Libreria {
@@ -16,6 +17,26 @@ public class Libreria {
         this.clientesRegistrados = clientesRegistrados;
         this.catalogoProductosNoSuscribibles = catalogoProductosNoSuscribibles;
         this.catalogoProductosSuscribibles = catalogoProductosSuscribibles;
+    }
+    
+    public Map<Integer, Float> obtenerImportesACobrarPorClienteMensual(String mes){
+        Map<Integer, Float> importes = new HashMap<>();
+        float importeMensual = 0;
+        for(Integer cliente : clientesRegistrados.keySet()) {
+            importeMensual = this.obtenerTotalACobrarMensual(cliente, mes);
+            importes.put(cliente, importeMensual);
+        }
+        return importes;
+    }
+    
+    public Map<Integer,Float> obtenerImportesACobrarPorClienteAnual(){
+        Map<Integer, Float> importes = new HashMap<>();
+        float importeAnual = 0;
+        for(Integer cliente : clientesRegistrados.keySet()) {
+            importeAnual = this.obtenerTotalACobrarAnual(cliente);
+            importes.put(cliente, importeAnual);
+        }
+        return importes;
     }
     
     public float obtenerTotalACobrarMensual(int idCliente, String mes) {
@@ -35,14 +56,14 @@ public class Libreria {
     public void aniadirSuscripcion(int idCliente, int idProducto, String mes) {
         ClienteRegistrado cliente = this.clientesRegistrados.get(idCliente);
         ArticuloSuscribible suscripcion = (ArticuloSuscribible) this.catalogoProductosSuscribibles.get(idProducto).generar();
-        suscripcion.establecerPeriodo(PeriodoSuscripcion.ANUAL);
+        suscripcion.establecerPeriodo(PeriodoSuscripcion.MENSUAL);
         cliente.aniadirSuscripcion(suscripcion, mes);
     }
     
     public void aniadirSuscripcion(int idCliente, int idProducto) {
         ClienteRegistrado cliente = this.clientesRegistrados.get(idCliente);
         ArticuloSuscribible suscripcion = (ArticuloSuscribible) this.catalogoProductosSuscribibles.get(idProducto).generar();
-        suscripcion.establecerPeriodo(PeriodoSuscripcion.MENSUAL);
+        suscripcion.establecerPeriodo(PeriodoSuscripcion.ANUAL);
         cliente.aniadirSuscripcion(suscripcion);
     }
     
