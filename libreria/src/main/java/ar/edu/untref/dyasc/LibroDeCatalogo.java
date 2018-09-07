@@ -1,12 +1,12 @@
 package ar.edu.untref.dyasc;
 
-public class GeneradorLibro implements GeneradorProducto{
+public class LibroDeCatalogo implements GeneradorProducto{
 
     private int id;
     private float precio;
     private String nombre;
     
-    public GeneradorLibro(int id, float precio, String nombre) {
+    public LibroDeCatalogo(int id, float precio, String nombre) {
         this.id = id;
         this.precio = precio;
         this.nombre = nombre;
