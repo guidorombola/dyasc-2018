@@ -3,11 +3,13 @@ package ar.edu.untref.dyasc;
 public class ClienteRegistrado {
     
     private int id;
+    private String nombre;
     private String direccion;
     private CuentaCorriente cuenta;
     
-    public ClienteRegistrado(int id, String direccion) {
+    public ClienteRegistrado(int id, String nombre ,String direccion) {
         this.id = id;
+        this.nombre = nombre;
         this.direccion = direccion;
         this.cuenta = new CuentaCorriente();
     }
@@ -25,15 +27,19 @@ public class ClienteRegistrado {
     }
     
     public CuentaCorriente obtenerCuenta() {
-        return cuenta;
+        return this.cuenta;
     }
     
     public String obtenerDireccion() {
-        return direccion;
+        return this.direccion;
     }
     
     public int obtenerId() {
-        return id;
+        return this.id;
+    }
+    
+    public String obtenerNombre() {
+        return this.nombre;
     }
     
     public void establecerDireccion(String direccion) {
