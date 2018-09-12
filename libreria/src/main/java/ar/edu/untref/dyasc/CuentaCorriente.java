@@ -18,29 +18,29 @@ public class CuentaCorriente {
         this.inicializarListasProductos();
         this.inicializarListasSuscripciones();
     }
-    
+
     public float obtenerTotalAnual() {
         return this.calcularTotalSuscripcionesAnual() + this.calcularTotalProductosAnual();
     }
-    
+
     public float obtenerTotalMensual(String mes) {
         return this.calcularTotalProductosMensual(mes) + this.calcularTotalSuscripcionesMensual(mes);
     }
-    
+
     public void aniadirProducto(Producto producto, String mes) {
         this.productosSinSuscripcion.get(mes).add(producto);
     }
-    
+
     public void aniadirSuscripcion(ArticuloSuscribible suscripcion) {
         for(List<ArticuloSuscribible> compras : this.suscripciones.values()) {
             compras.add(suscripcion);
         }
     }
-    
+
     public void aniadirSuscripcion(ArticuloSuscribible suscripcion, String mes) {
         this.suscripciones.get(mes).add(suscripcion);
     }
-    
+
     private float calcularTotalProductosMensual(String mes) {
         float totalMensual = 0;
         Iterator<Producto> itr = this.productosSinSuscripcion.get(mes).iterator();
@@ -50,7 +50,7 @@ public class CuentaCorriente {
         }
         return totalMensual * Libreria.obtenerDescuentoPorRegistro();
     }
-    
+
     private float calcularTotalSuscripcionesMensual(String mes) {
         float totalSuscripcionesAnuales = 0;
         float totalSuscripcionesMensuales = 0;
@@ -66,7 +66,7 @@ public class CuentaCorriente {
         return totalSuscripcionesAnuales * Libreria.obtenerDescuentoPorSuscripcionAnual() + 
                 totalSuscripcionesMensuales * Libreria.obtenerDescuentoPorRegistro();
     }
-    
+
     private float calcularTotalProductosAnual() {
         float totalComprasProductos = 0;
         for(String mes: this.productosSinSuscripcion.keySet()) {
@@ -74,7 +74,7 @@ public class CuentaCorriente {
         }
         return totalComprasProductos;
     }
-    
+
     private float calcularTotalSuscripcionesAnual() {
         float totalSuscripciones = 0;       
         for(String mes : this.suscripciones.keySet()) {
@@ -82,19 +82,19 @@ public class CuentaCorriente {
         }
         return totalSuscripciones;
     }
-    
+
     private void inicializarListasSuscripciones() {
         for(String mes : this.suscripciones.keySet()) {
             this.suscripciones.put(mes, new ArrayList<ArticuloSuscribible>());
         }
     }
-    
+
     private void inicializarListasProductos() {
         for(String mes : this.productosSinSuscripcion.keySet()) {
             this.productosSinSuscripcion.put(mes, new ArrayList<Producto>());
         }
     }
-    
+
     private void inicializarMeses() {
         String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
         for(String mes: meses) {

@@ -42,7 +42,7 @@ public class LibreriaTest {
 
         Assert.assertEquals(libreria.obtenerTotalACobrarMensual(100, "Enero"), precioConDescuento, 0.001);  
     }
- 
+
     @Test
     public void unClienteRegistradoQueCompraUnLibroDebeRecibirUnDescuentoDel5PorcientoPeroAlProductoNoSeLeRecargaIVA() {
         int idJuan = 100;
@@ -54,7 +54,7 @@ public class LibreriaTest {
 
         Assert.assertEquals(libreria.obtenerTotalACobrarMensual(100, "Enero"), precioLibroConDescuento, 0.001);
     }
-    
+
     @Test
     public void unClienteRegistradoQuePideUnaSuscripcionAnualDebeRecibirUnDescuentoDel20Porciento() {
         int idRodrigo = 200;
@@ -66,6 +66,6 @@ public class LibreriaTest {
         libreria.aniadirSuscripcion(idRodrigo, idDiario);
         Assert.assertEquals(precioAnualConDescuento, libreria.obtenerTotalACobrarAnual(idRodrigo), 0.001);
     }
-    
+
 
 }
