@@ -15,9 +15,12 @@ public class Bitacora {
         this.creadorDeSalidas = new FabricaDeSalidas();
     }
 
-    public void registrarEvento(String mensaje) {
+    public void registrarEvento(String mensaje) throws VariableNoDefinidaException {
         String mensajeDeSalida = this.formatearMensaje(mensaje);
         String configuracionDeSalida = System.getProperty("bitacora.destino");
+        if (configuracionDeSalida == null) {
+            throw new VariableNoDefinidaException();
+        }
         List<Salida> salidasEvento = this.parsearEntrada(configuracionDeSalida);
         Iterator<Salida> iterador = salidasEvento.iterator();
         while (iterador.hasNext()) {
