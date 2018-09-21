@@ -2,7 +2,7 @@ package ar.edu.untref.dyasc;
 
 public class SalidaPorPantalla implements Salida {
 
-    public void mostrar(String mensaje) {
+    public void imprimir(String mensaje) {
         System.out.println(mensaje);
     }
 }

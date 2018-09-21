@@ -22,7 +22,7 @@ public class Bitacora {
         Iterator<Salida> iterador = salidasEvento.iterator();
         while (iterador.hasNext()) {
             Salida salida = iterador.next();
-            salida.mostrar(mensajeDeSalida);
+            salida.imprimir(mensajeDeSalida);
         }
     }
 

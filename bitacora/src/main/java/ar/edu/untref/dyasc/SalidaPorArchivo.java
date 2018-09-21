@@ -11,7 +11,7 @@ public class SalidaPorArchivo implements Salida {
         this.archivoSalida = archivoSalida;
     }
 
-    public void mostrar(String mensaje) {
+    public void imprimir(String mensaje) {
         try {
             FileWriter escritorArchivoSalida = new FileWriter(this.archivoSalida, true);
             escritorArchivoSalida.write(mensaje + "\n");
