@@ -11,9 +11,9 @@ public class BatallaNaval {
         this.barcosAnclados = barcosDelJuego;
     }
 
-    public InformeDeAtaque atacar(int i, int j) {
-        Casillero casillero = new Casillero(i,j);
-        Barco barcoObjetivo = buscarObjetivo(i, j);
+    public InformeDeAtaque atacar(int coordenadaX, int coordenadaY) {
+        Casillero casillero = new Casillero(coordenadaX,coordenadaY);
+        Barco barcoObjetivo = buscarObjetivo(coordenadaX, coordenadaY);
         if(barcoObjetivo == null) {
             return InformeDeAtaque.AGUA;
         } else {
@@ -27,10 +27,10 @@ public class BatallaNaval {
         
     }
     
-    public Barco buscarObjetivo(int i, int j) {
+    public Barco buscarObjetivo(int coordenadaX, int coordenadaY) {
         Iterator<Barco> iterador = barcosAnclados.iterator();
         boolean encontroBarco = false;
-        Casillero casillero = new Casillero(i,j);
+        Casillero casillero = new Casillero(coordenadaX,coordenadaY);
         Barco barcoObjetivo = null;
         while(iterador.hasNext() && !encontroBarco) {
             barcoObjetivo = iterador.next();
