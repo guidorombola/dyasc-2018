@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CasilleroTest {
 
     @Test
-    public void dosCoordenadasConElMismoXeYDebenSerIguales() {
+    public void dosCasillerosConElMismoXeYDebenSerIguales() {
         Casillero casillero1 = new Casillero(3,3);
         Casillero casillero2 = new Casillero(3,3);
         
@@ -15,7 +15,7 @@ public class CasilleroTest {
     }
     
     @Test
-    public void dosCoordenadasConElMismoXPeroDistintoYDebenSerDiferentes() {
+    public void dosCasillerosConElMismoXPeroDistintoYDebenSerDiferentes() {
         Casillero casillero1 = new Casillero(3,3);
         Casillero casillero2 = new Casillero(3,4);
         
@@ -23,7 +23,7 @@ public class CasilleroTest {
     }
     
     @Test
-    public void dosCoordenadasConElMismoYPeroDistintoXDebenSerDiferentes() {
+    public void dosCasillerosConElMismoYPeroDistintoXDebenSerDiferentes() {
         Casillero casillero1 = new Casillero(3,3);
         Casillero casillero2 = new Casillero(4,3);
         
@@ -31,7 +31,7 @@ public class CasilleroTest {
     }
     
     @Test
-    public void dosCoordenadasConDisntoXeYDebenSerDiferentes() {
+    public void dosCasillerosConDisntoXeYDebenSerDiferentes() {
         Casillero casillero1 = new Casillero(3,3);
         Casillero casillero2 = new Casillero(4,2);
         
@@ -39,7 +39,7 @@ public class CasilleroTest {
     }
     
     @Test
-    public void dosCoordenadasConLosMismosXeYTienenElMismoHashCode() {
+    public void dosCasillerosConLosMismosXeYTienenElMismoHashCode() {
         Casillero casillero1 = new Casillero(3,3);
         Casillero casillero2 = new Casillero(3,3);
         
