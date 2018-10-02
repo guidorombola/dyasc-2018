@@ -21,6 +21,7 @@ public class BatallaNaval {
             if (barcoObjetivo.ubicacionEnTablero().containsValue(false)) {
                 return InformeDeAtaque.TOCADO;
             } else {
+                this.barcosAnclados.remove(barcoObjetivo);
                 return InformeDeAtaque.HUNDIDO;
             }
         }    
@@ -40,6 +41,10 @@ public class BatallaNaval {
             }
         }
         return null;
+    }
+
+    public List<Barco> barcosAnclados() {
+        return this.barcosAnclados;
     }
 
 }

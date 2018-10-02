@@ -87,5 +87,23 @@ public class BatallaNavalTest {
         
         assertEquals(informe, InformeDeAtaque.HUNDIDO);
     }
+    
+    @Test
+    public void siHundoAUnBarcoDebeEliminarseDelTablero() {
+        List<Barco> barcosDelJuego = new ArrayList<>();
+        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
+        ubicacionEnTablero.put(new Casillero(3,3), false);
+        ubicacionEnTablero.put(new Casillero(3,4), false);
+        ubicacionEnTablero.put(new Casillero(3,5), false);
+        Barco barco = new Barco(ubicacionEnTablero);
+        barcosDelJuego.add(barco);
+        BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        
+        batalla.atacar(3, 3);
+        batalla.atacar(3, 4);
+        batalla.atacar(3, 5);
+        
+        assertFalse(batalla.barcosAnclados().contains(barco));
+    }
 
 }
