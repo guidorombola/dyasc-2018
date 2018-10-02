@@ -10,14 +10,8 @@ public class Barco {
        this.ubicacionEnTablero = ubicacionEnTablero;
     }
 
-    public InformeDeAtaque recibirAtaque(int coordenadaX, int coordenadaY) {
-        Casillero coordenada = new Casillero(coordenadaX,coordenadaY);
-        this.ubicacionEnTablero.put(coordenada, true);
-        if(ubicacionEnTablero.containsValue(false)) {
-            return InformeDeAtaque.TOCADO;            
-        } else {
-            return InformeDeAtaque.HUNDIDO;
-        }
+    public Map<Casillero, Boolean> ubicacionEnTablero() {
+        return this.ubicacionEnTablero;
     }
 
 }
