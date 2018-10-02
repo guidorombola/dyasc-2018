@@ -4,17 +4,17 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BatallaNaval {
-    
+
     private List<Barco> barcosAnclados;
-    
+
     public BatallaNaval(List<Barco> barcosDelJuego) {
         this.barcosAnclados = barcosDelJuego;
     }
 
     public InformeDeAtaque atacar(int coordenadaX, int coordenadaY) {
-        Casillero casillero = new Casillero(coordenadaX,coordenadaY);
+        Casillero casillero = new Casillero(coordenadaX, coordenadaY);
         Barco barcoObjetivo = buscarObjetivo(coordenadaX, coordenadaY);
-        if(barcoObjetivo == null) {
+        if (barcoObjetivo == null) {
             return InformeDeAtaque.AGUA;
         } else {
             barcoObjetivo.ubicacionEnTablero().put(casillero, true);
@@ -24,18 +24,18 @@ public class BatallaNaval {
                 this.barcosAnclados.remove(barcoObjetivo);
                 return InformeDeAtaque.HUNDIDO;
             }
-        }    
-        
+        }
+
     }
-    
+
     private Barco buscarObjetivo(int coordenadaX, int coordenadaY) {
         Iterator<Barco> iterador = barcosAnclados.iterator();
         boolean encontroBarco = false;
-        Casillero casillero = new Casillero(coordenadaX,coordenadaY);
+        Casillero casillero = new Casillero(coordenadaX, coordenadaY);
         Barco barcoObjetivo = null;
-        while(iterador.hasNext() && !encontroBarco) {
+        while (iterador.hasNext() && !encontroBarco) {
             barcoObjetivo = iterador.next();
-            if(barcoObjetivo.ubicacionEnTablero().keySet().contains(casillero)) {
+            if (barcoObjetivo.ubicacionEnTablero().keySet().contains(casillero)) {
                 encontroBarco = true;
                 return barcoObjetivo;
             }

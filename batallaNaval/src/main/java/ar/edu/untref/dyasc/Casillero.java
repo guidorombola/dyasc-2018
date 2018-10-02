@@ -4,16 +4,16 @@ public class Casillero {
 
     private int coordenadaX;
     private int coordenadaY;
-    
+
     public Casillero(int x, int y) {
         coordenadaX = x;
         coordenadaY = y;
     }
-    
+
     public int getCoordenadaX() {
         return coordenadaX;
     }
-  
+
     public int getCoordenadaY() {
         return coordenadaY;
     }
@@ -29,14 +29,13 @@ public class Casillero {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj == null || obj.getClass() != this.getClass()) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
-        }else {
-            Casillero coordenada = (Casillero)obj;
-            return (this.getCoordenadaX() == coordenada.getCoordenadaX()) && (this.getCoordenadaY() == coordenada.getCoordenadaY());            
+        } else {
+            Casillero coordenada = (Casillero) obj;
+            return (this.getCoordenadaX() == coordenada.getCoordenadaX())
+                    && (this.getCoordenadaY() == coordenada.getCoordenadaY());
         }
     }
-    
-    
-    
+
 }
