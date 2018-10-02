@@ -27,7 +27,7 @@ public class BatallaNaval {
         
     }
     
-    public Barco buscarObjetivo(int coordenadaX, int coordenadaY) {
+    private Barco buscarObjetivo(int coordenadaX, int coordenadaY) {
         Iterator<Barco> iterador = barcosAnclados.iterator();
         boolean encontroBarco = false;
         Casillero casillero = new Casillero(coordenadaX,coordenadaY);
