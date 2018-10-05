@@ -45,4 +45,15 @@ public class TenisTest {
         
         Assert.assertEquals(40, partido.obtenerPuntaje(Jugador.UNO));
     }
+    
+    @Test
+    public void elPrimerJugadorAnotaCuatroPelotasExitosasYGanaElGame() {
+        partido.anotar(Jugador.UNO);
+        partido.anotar(Jugador.UNO);
+        partido.anotar(Jugador.UNO);
+        partido.anotar(Jugador.UNO);
+        
+        Assert.assertEquals(0, partido.obtenerPuntaje(Jugador.UNO));
+        Assert.assertEquals(1, partido.obtenerGames(Jugador.UNO));
+    }
 }

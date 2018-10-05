@@ -18,10 +18,23 @@ public class PartidoDeTenis {
 
     public void anotar(Jugador jugador) {
         if(jugador == Jugador.UNO) {
-            puntajeJugador1++;
+            if(puntajeJugador1 != this.puntajesPosibles.length -1) {
+                puntajeJugador1++ ;                
+            } else {
+                puntajeJugador1 = 0;
+            }
         } else {
-            puntajeJugador2++;
+            if(puntajeJugador2 != this.puntajesPosibles.length -1) {
+                puntajeJugador2++ ;                
+            } else {
+                puntajeJugador2 = 0;
+            }
         }
+    }
+
+    public int obtenerGames(Jugador uno) {
+        // TODO Auto-generated method stub
+        return 1;
     }
 
 }
