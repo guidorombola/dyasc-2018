@@ -17,9 +17,9 @@ public class PartidoDeTenis {
 
     public void anotar(Jugador jugador) {
         if(jugador == Jugador.UNO) {
-            puntajeJugador1 = 15;
+            puntajeJugador1 += 15;
         } else {
-            puntajeJugador2 = 15;
+            puntajeJugador2 += 15;
         }
     }
 
