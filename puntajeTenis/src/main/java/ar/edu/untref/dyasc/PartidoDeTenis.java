@@ -4,6 +4,7 @@ public class PartidoDeTenis {
     
     int puntajeJugador1 = 0;
     int puntajeJugador2 = 0;
+    private int[] puntajesPosibles = {0, 15, 30, 40};
 
     public int obtenerPuntaje(Jugador jugador) {
         int puntaje = puntajeJugador1;
@@ -12,14 +13,14 @@ public class PartidoDeTenis {
             puntaje = puntajeJugador2;
         }
         
-        return puntaje;
+        return puntajesPosibles[puntaje];
     }
 
     public void anotar(Jugador jugador) {
         if(jugador == Jugador.UNO) {
-            puntajeJugador1 += 15;
+            puntajeJugador1++;
         } else {
-            puntajeJugador2 += 15;
+            puntajeJugador2++;
         }
     }
 
