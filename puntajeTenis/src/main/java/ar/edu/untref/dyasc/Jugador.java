@@ -1,6 +1,29 @@
 package ar.edu.untref.dyasc;
 
-public enum Jugador {
-    UNO, DOS;
+public class Jugador {
 
+    private int[] puntajesPosibles;
+    private int puntajeActual;
+    private int games;
+    
+    public Jugador() {
+        puntajesPosibles = new int[] {0, 15, 30, 40};
+    }
+
+    public int puntaje() {
+        return puntajesPosibles[puntajeActual];
+    }
+    
+    public void incrementarPuntaje() {
+        if(puntajeActual == this.puntajesPosibles.length - 1) {
+            puntajeActual = 0;
+            games++;
+        } else {
+            puntajeActual++;
+        }
+    }
+
+    public int games() {
+        return games;
+    }
 }

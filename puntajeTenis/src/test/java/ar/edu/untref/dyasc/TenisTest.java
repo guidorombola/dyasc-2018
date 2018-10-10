@@ -16,44 +16,59 @@ public class TenisTest {
     @Test
     public void empiezaElPartidoYNingunJugadorTienePuntos() {
         
-        Assert.assertEquals(0, partido.obtenerPuntaje(Jugador.UNO));
-        Assert.assertEquals(0, partido.obtenerPuntaje(Jugador.DOS));
+        Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.DOS));
     }
 
     @Test
     public void elJugadorUnoAnotaLaPrimeraPelotaExitosaYObtiene15Puntos() {
         
-        partido.anotar(Jugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
         
-        Assert.assertEquals(15, partido.obtenerPuntaje(Jugador.UNO));
-        Assert.assertEquals(0, partido.obtenerPuntaje(Jugador.DOS));
+        Assert.assertEquals(15, partido.obtenerPuntaje(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.DOS));
     }
     
     @Test
     public void elPrimerJugadorAnotaDosPelotasExitosasYObtiene30Puntos() {
-        partido.anotar(Jugador.UNO);
-        partido.anotar(Jugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
         
-        Assert.assertEquals(30, partido.obtenerPuntaje(Jugador.UNO));
+        Assert.assertEquals(30, partido.obtenerPuntaje(NumeroDeJugador.UNO));
     }
     
     @Test
     public void elJugadorUnoAnotaTresPelotasExitosasConsecutivasYObtiene40Puntos() {
-        partido.anotar(Jugador.UNO);
-        partido.anotar(Jugador.UNO);
-        partido.anotar(Jugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
         
-        Assert.assertEquals(40, partido.obtenerPuntaje(Jugador.UNO));
+        Assert.assertEquals(40, partido.obtenerPuntaje(NumeroDeJugador.UNO));
     }
     
     @Test
     public void elPrimerJugadorAnotaCuatroPelotasExitosasYGanaElGame() {
-        partido.anotar(Jugador.UNO);
-        partido.anotar(Jugador.UNO);
-        partido.anotar(Jugador.UNO);
-        partido.anotar(Jugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
         
-        Assert.assertEquals(0, partido.obtenerPuntaje(Jugador.UNO));
-        Assert.assertEquals(1, partido.obtenerGames(Jugador.UNO));
+        Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.UNO));
+        Assert.assertEquals(1, partido.obtenerGames(NumeroDeJugador.UNO));
     }
+/*    
+    @Test
+    public void losDosJugadoresLleganACuarentaPuntosYElJugadorUnoAnotaNuevamenteYNoGanaElGame() {
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.UNO);
+        
+        Assert.assertEquals(0, partido.obtenerGames(NumeroDeJugador.UNO));
+        Assert.assertEquals("ventaja", partido.obtenerPuntaje(NumeroDeJugador.UNO));
+    }
+    */
 }
