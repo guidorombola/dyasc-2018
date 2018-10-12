@@ -24,7 +24,7 @@ public class BatallaNavalTest {
 
         InformeDeAtaque informe = batalla.atacar(3, 6);
 
-        assertEquals(informe, InformeDeAtaque.AGUA);
+        assertEquals(InformeDeAtaque.AGUA, informe);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class BatallaNavalTest {
 
         InformeDeAtaque informe = batalla.atacar(3, 3);
 
-        assertEquals(informe, InformeDeAtaque.HUNDIDO);
+        assertEquals(InformeDeAtaque.HUNDIDO, informe);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class BatallaNavalTest {
         batalla.atacar(3, 3);
         InformeDeAtaque informe = batalla.atacar(3, 4);
 
-        assertEquals(informe, InformeDeAtaque.TOCADO);
+        assertEquals(InformeDeAtaque.TOCADO, informe);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class BatallaNavalTest {
         batalla.atacar(3, 4);
         InformeDeAtaque informe = batalla.atacar(3, 5);
 
-        assertEquals(informe, InformeDeAtaque.HUNDIDO);
+        assertEquals(InformeDeAtaque.HUNDIDO, informe);
     }
 
     @Test
