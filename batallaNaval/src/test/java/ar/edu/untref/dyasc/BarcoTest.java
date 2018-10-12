@@ -21,10 +21,10 @@ public class BarcoTest {
         ubicacionEnTableroBarco2.put(new Casillero(4, 5), false);
         Barco barco1 = new Barco(ubicacionEnTableroBarco1);
         Barco barco2 = new Barco(ubicacionEnTableroBarco2);
-        
-        assertEquals(barco1, barco2);    
+
+        assertEquals(barco1, barco2);
     }
-    
+
     @Test
     public void dosBarcosConDistintosCasillerosSonDistintos() {
         Map<Casillero, Boolean> ubicacionEnTableroBarco1 = new HashMap<>();
@@ -37,10 +37,10 @@ public class BarcoTest {
         ubicacionEnTableroBarco2.put(new Casillero(6, 10), false);
         Barco barco1 = new Barco(ubicacionEnTableroBarco1);
         Barco barco2 = new Barco(ubicacionEnTableroBarco2);
-        
-        assertNotEquals(barco1, barco2);    
+
+        assertNotEquals(barco1, barco2);
     }
-    
+
     @Test
     public void dosBarcosConLosMismosCasillerosTienenElMismoHashCode() {
         Map<Casillero, Boolean> ubicacionEnTableroBarco1 = new HashMap<>();
@@ -53,8 +53,8 @@ public class BarcoTest {
         ubicacionEnTableroBarco2.put(new Casillero(4, 5), false);
         Barco barco1 = new Barco(ubicacionEnTableroBarco1);
         Barco barco2 = new Barco(ubicacionEnTableroBarco2);
-        
-        assertEquals(barco1.hashCode(), barco2.hashCode());    
+
+        assertEquals(barco1.hashCode(), barco2.hashCode());
     }
 
 }

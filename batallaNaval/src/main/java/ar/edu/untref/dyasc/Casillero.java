@@ -33,8 +33,7 @@ public class Casillero {
             return false;
         } else {
             Casillero coordenada = (Casillero) obj;
-            return (this.coordenadaX() == coordenada.coordenadaX())
-                    && (this.coordenadaY() == coordenada.coordenadaY());
+            return (this.coordenadaX() == coordenada.coordenadaX()) && (this.coordenadaY() == coordenada.coordenadaY());
         }
     }
 
