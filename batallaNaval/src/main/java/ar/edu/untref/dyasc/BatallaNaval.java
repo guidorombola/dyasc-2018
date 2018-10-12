@@ -49,9 +49,9 @@ public class BatallaNaval {
         return this.barcosAnclados;
     }
 
-    public void aniadirBote(int i, int j) {
+    public void aniadirBote(int coordenadaX, int coordenadaY) {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<Casillero, Boolean>();
-        ubicacionEnTablero.put(new Casillero(i,j), false);
+        ubicacionEnTablero.put(new Casillero(coordenadaX,coordenadaY), false);
         Barco bote = new Barco(ubicacionEnTablero);
         this.barcosAnclados.add(bote);
     }
