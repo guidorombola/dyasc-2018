@@ -51,6 +51,9 @@ public class BatallaNavalTest {
         Barco barco = new Barco(ubicacionEnTablero);
         barcosDelJuego.add(barco);
         BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        
+        InformeDeAtaque informe = batalla.atacar(3, 3);
+        assertEquals(InformeDeAtaque.TOCADO, informe);
     }
 
     @Test
