@@ -84,6 +84,17 @@ public class BatallaNavalTest {
 
         assertEquals(InformeDeAtaque.TOCADO, informe);
     }
+    
+    @Test
+    public void siAtacoAUnCruceroDesplegadoHaciaIzquierdaEnDosDeSusPosicionesInformaAveria() {
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_IZQUIERDA);
+
+        batalla.atacar(4, 3);
+        InformeDeAtaque informe = batalla.atacar(3, 3);
+
+        assertEquals(InformeDeAtaque.TOCADO, informe);
+    }
 
     @Test
     public void siHundoAUnCruceroDesplegadoHaciaAbajoDebeEliminarseDelTablero() {
