@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class BatallaNaval {
 
+    private static final int TAMANIO_TABLERO = 10;
     private List<Barco> barcosAnclados;
 
     public BatallaNaval() {
@@ -50,9 +52,12 @@ public class BatallaNaval {
         return this.barcosAnclados;
     }
 
-    public void aniadirBote(int coordenadaX, int coordenadaY) {
+    public void aniadirBote(int coordenadaX, int coordenadaY) throws ExcepcionLimitesInvalidos {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<Casillero, Boolean>();
         ubicacionEnTablero.put(new Casillero(coordenadaX,coordenadaY), false);
+        if(!ubicacionEnTableroValida(ubicacionEnTablero.keySet())) {
+            throw new ExcepcionLimitesInvalidos();
+        }
         Barco bote = new Barco(ubicacionEnTablero);
         this.barcosAnclados.add(bote);
     }
@@ -85,6 +90,18 @@ public class BatallaNaval {
         ubicacionEnTablero.put(casillero3, false);
         Barco crucero = new Barco(ubicacionEnTablero);
         this.barcosAnclados.add(crucero);
+    }
+    
+    private boolean ubicacionEnTableroValida(Set<Casillero> casilerosQueConformaranElBarco) {
+        Iterator<Casillero> iterador = casilerosQueConformaranElBarco.iterator();
+        boolean casillerosValidos = true;
+        Casillero actual = null;
+        while(iterador.hasNext() && casillerosValidos) {
+            actual = iterador.next();
+            casillerosValidos = (actual.coordenadaX() >= 0 && actual.coordenadaX() < TAMANIO_TABLERO) && 
+                    (actual.coordenadaY()>= 0 && actual.coordenadaY() < TAMANIO_TABLERO);
+        }
+        return casillerosValidos;
     }
 
 }

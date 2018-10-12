@@ -12,7 +12,7 @@ import org.junit.Test;
 public class BatallaNavalTest {
 
     @Test
-    public void siAtacoEnUnaPosicionDondeNoHayBarcosInformaAgua() {
+    public void siAtacoEnUnaPosicionDondeNoHayBarcosInformaAgua() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirBote(4,3);
         
@@ -22,7 +22,7 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siAtacoAUnaPosicionDondeHayUnBoteLoHundo() {
+    public void siAtacoAUnaPosicionDondeHayUnBoteLoHundo() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirBote(4,3);
 
@@ -199,5 +199,12 @@ public class BatallaNavalTest {
 
         assertFalse(batalla.barcosAnclados().contains(barcoQueSeEsperaQueHayaSidoEliminado));
     }
+    
+    @Test(expected = ExcepcionLimitesInvalidos.class)
+    public void siQuieroAniadirUnBoteFueraDeLosLimitesDelTableroArrojaExcepcion() throws ExcepcionLimitesInvalidos {
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirBote(20, 20);
+    }
+    
 
 }
