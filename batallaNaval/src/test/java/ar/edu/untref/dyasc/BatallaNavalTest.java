@@ -96,5 +96,22 @@ public class BatallaNavalTest {
 
         assertFalse(batalla.barcosAnclados().contains(barcoQueSeEsperaQueHayaSidoEliminado));
     }
+    
+    @Test
+    public void siHundoAUnCruceroDesplegadoHaciaDerechaDebeEliminarseDelTablero() {
+        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
+        ubicacionEnTablero.put(new Casillero(4, 3), false);
+        ubicacionEnTablero.put(new Casillero(5, 3), false);
+        ubicacionEnTablero.put(new Casillero(6, 3), false);
+        Barco barcoQueSeEsperaQueHayaSidoEliminado = new Barco(ubicacionEnTablero);
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_DERECHA);
+
+        batalla.atacar(4, 3);
+        batalla.atacar(5, 3);
+        batalla.atacar(6, 3);
+
+        assertFalse(batalla.barcosAnclados().contains(barcoQueSeEsperaQueHayaSidoEliminado));
+    }
 
 }
