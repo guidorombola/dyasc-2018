@@ -75,6 +75,18 @@ public class BatallaNavalTest {
     }
     
     @Test
+    public void siAtacoAUnCruceroDesplegadoHaciaArribaEnSusTresPosicionesSeInformaHundimieno() {
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ARRIBA);
+
+        batalla.atacar(4, 3);
+        batalla.atacar(4, 2);
+        InformeDeAtaque informe = batalla.atacar(4, 1);
+
+        assertEquals(InformeDeAtaque.HUNDIDO, informe);
+    }
+    
+    @Test
     public void siAtacoAUnCruceroDesplegadoHaciaDerechaEnDosDeSusPosicionesInformaAveria() {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_DERECHA);
@@ -86,6 +98,18 @@ public class BatallaNavalTest {
     }
     
     @Test
+    public void siAtacoAUnCruceroDesplegadoHaciaDerechaEnSusTresPosicionesSeInformaHundimieno() {
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_DERECHA);
+
+        batalla.atacar(4, 3);
+        batalla.atacar(5, 3);
+        InformeDeAtaque informe = batalla.atacar(6, 3);
+
+        assertEquals(InformeDeAtaque.HUNDIDO, informe);
+    }
+    
+    @Test
     public void siAtacoAUnCruceroDesplegadoHaciaIzquierdaEnDosDeSusPosicionesInformaAveria() {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_IZQUIERDA);
@@ -94,6 +118,18 @@ public class BatallaNavalTest {
         InformeDeAtaque informe = batalla.atacar(3, 3);
 
         assertEquals(InformeDeAtaque.TOCADO, informe);
+    }
+    
+    @Test
+    public void siAtacoAUnCruceroDesplegadoHaciaIzquierdaEnSusTresPosicionesSeInformaHundimieno() {
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_IZQUIERDA);
+
+        batalla.atacar(4, 3);
+        batalla.atacar(3, 3);
+        InformeDeAtaque informe = batalla.atacar(2, 3);
+
+        assertEquals(InformeDeAtaque.HUNDIDO, informe);
     }
 
     @Test
