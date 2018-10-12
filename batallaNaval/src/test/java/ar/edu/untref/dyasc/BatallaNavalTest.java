@@ -32,7 +32,7 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueNoHabiaSidoAtacadoPreviamenteCausoUnaAveria() {
+    public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueNoHabiaSidoAtacadoPreviamenteCausoUnaAveria() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
         
@@ -41,7 +41,7 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueTeniaUnAtaquePrevioVuelveADarUnInfromeDeAveria() {
+    public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueTeniaUnAtaquePrevioVuelveADarUnInfromeDeAveria() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
         
@@ -52,7 +52,7 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaAbajoEnSusTresPosicionesSeInformaHundimiento() {
+    public void siAtacoAUnCruceroDesplegadoHaciaAbajoEnSusTresPosicionesSeInformaHundimiento() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
 
@@ -64,7 +64,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaArribaEnDosDeSusPosicionesInformaAveria() {
+    public void siAtacoAUnCruceroDesplegadoHaciaArribaEnDosDeSusPosicionesInformaAveria() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ARRIBA);
 
@@ -75,7 +75,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaArribaEnSusTresPosicionesSeInformaHundimieno() {
+    public void siAtacoAUnCruceroDesplegadoHaciaArribaEnSusTresPosicionesSeInformaHundimieno() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ARRIBA);
 
@@ -87,7 +87,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaDerechaEnDosDeSusPosicionesInformaAveria() {
+    public void siAtacoAUnCruceroDesplegadoHaciaDerechaEnDosDeSusPosicionesInformaAveria() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_DERECHA);
 
@@ -98,7 +98,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaDerechaEnSusTresPosicionesSeInformaHundimieno() {
+    public void siAtacoAUnCruceroDesplegadoHaciaDerechaEnSusTresPosicionesSeInformaHundimieno() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_DERECHA);
 
@@ -110,7 +110,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaIzquierdaEnDosDeSusPosicionesInformaAveria() {
+    public void siAtacoAUnCruceroDesplegadoHaciaIzquierdaEnDosDeSusPosicionesInformaAveria() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_IZQUIERDA);
 
@@ -121,7 +121,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siAtacoAUnCruceroDesplegadoHaciaIzquierdaEnSusTresPosicionesSeInformaHundimieno() {
+    public void siAtacoAUnCruceroDesplegadoHaciaIzquierdaEnSusTresPosicionesSeInformaHundimieno() throws ExcepcionLimitesInvalidos {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_IZQUIERDA);
 
@@ -133,7 +133,7 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siHundoAUnCruceroDesplegadoHaciaAbajoDebeEliminarseDelTablero() {
+    public void siHundoAUnCruceroDesplegadoHaciaAbajoDebeEliminarseDelTablero() throws ExcepcionLimitesInvalidos {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
         ubicacionEnTablero.put(new Casillero(4, 3), false);
         ubicacionEnTablero.put(new Casillero(4, 4), false);
@@ -150,7 +150,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siHundoAUnCruceroDesplegadoHaciaArribaDebeEliminarseDelTablero() {
+    public void siHundoAUnCruceroDesplegadoHaciaArribaDebeEliminarseDelTablero() throws ExcepcionLimitesInvalidos {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
         ubicacionEnTablero.put(new Casillero(4, 1), false);
         ubicacionEnTablero.put(new Casillero(4, 2), false);
@@ -167,7 +167,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siHundoAUnCruceroDesplegadoHaciaDerechaDebeEliminarseDelTablero() {
+    public void siHundoAUnCruceroDesplegadoHaciaDerechaDebeEliminarseDelTablero() throws ExcepcionLimitesInvalidos {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
         ubicacionEnTablero.put(new Casillero(4, 3), false);
         ubicacionEnTablero.put(new Casillero(5, 3), false);
@@ -184,7 +184,7 @@ public class BatallaNavalTest {
     }
     
     @Test
-    public void siHundoAUnCruceroDesplegadoHaciaIzquierdaDebeEliminarseDelTablero() {
+    public void siHundoAUnCruceroDesplegadoHaciaIzquierdaDebeEliminarseDelTablero() throws ExcepcionLimitesInvalidos {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
         ubicacionEnTablero.put(new Casillero(4, 3), false);
         ubicacionEnTablero.put(new Casillero(3, 3), false);
@@ -206,5 +206,28 @@ public class BatallaNavalTest {
         batalla.aniadirBote(20, 20);
     }
     
+    @Test(expected = ExcepcionLimitesInvalidos.class)
+    public void siQuieroAniadirUnCruceroDesplegadoHaciaAbajoFueraDeLosLimitesDelTableroArrojaExcepcion() throws ExcepcionLimitesInvalidos{
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(5, 10, DireccionDeDespliegue.HACIA_ABAJO);
+    }
+    
+    @Test(expected = ExcepcionLimitesInvalidos.class)
+    public void siQuieroAniadirUnCruceroDesplegadoHaciaArribaFueraDeLosLimitesDelTableroArrojaExcepcion() throws ExcepcionLimitesInvalidos{
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(5, 0, DireccionDeDespliegue.HACIA_ARRIBA);
+    }
+    
+    @Test(expected = ExcepcionLimitesInvalidos.class)
+    public void siQuieroAniadirUnCruceroDesplegadoHaciaDerechaFueraDeLosLimitesDelTableroArrojaExcepcion() throws ExcepcionLimitesInvalidos{
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(9, 5, DireccionDeDespliegue.HACIA_DERECHA);
+    }
+    
+    @Test(expected = ExcepcionLimitesInvalidos.class)
+    public void siQuieroAniadirUnCruceroDesplegadoHaciaIzquierdaFueraDeLosLimitesDelTableroArrojaExcepcion() throws ExcepcionLimitesInvalidos{
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(1, 5, DireccionDeDespliegue.HACIA_IZQUIERDA);
+    }
 
 }

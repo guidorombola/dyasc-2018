@@ -62,7 +62,7 @@ public class BatallaNaval {
         this.barcosAnclados.add(bote);
     }
 
-    public void aniadirCrucero(int coordenadaXInicio, int coordenadaYInicio, DireccionDeDespliegue direccion) {
+    public void aniadirCrucero(int coordenadaXInicio, int coordenadaYInicio, DireccionDeDespliegue direccion) throws ExcepcionLimitesInvalidos {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<Casillero, Boolean>();
         Casillero casillero1 = new Casillero(coordenadaXInicio, coordenadaYInicio);
         Casillero casillero2 = null;
@@ -88,6 +88,9 @@ public class BatallaNaval {
         ubicacionEnTablero.put(casillero1, false);
         ubicacionEnTablero.put(casillero2, false);
         ubicacionEnTablero.put(casillero3, false);
+        if(!ubicacionEnTableroValida(ubicacionEnTablero.keySet())) {
+            throw new ExcepcionLimitesInvalidos();
+        }
         Barco crucero = new Barco(ubicacionEnTablero);
         this.barcosAnclados.add(crucero);
     }
