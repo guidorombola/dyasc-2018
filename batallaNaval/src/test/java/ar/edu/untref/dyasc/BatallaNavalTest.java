@@ -12,7 +12,7 @@ import org.junit.Test;
 public class BatallaNavalTest {
 
     @Test
-    public void atacarEnUnaPosicionDondeHayAgua() {
+    public void siAtacoEnUnaPosicionDondeNoHayBarcosInformaAgua() {
         BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirBote(4,3);
         
