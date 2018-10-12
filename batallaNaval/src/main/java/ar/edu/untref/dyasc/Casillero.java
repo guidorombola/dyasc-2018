@@ -10,11 +10,11 @@ public class Casillero {
         coordenadaY = y;
     }
 
-    public int getCoordenadaX() {
+    public int coordenadaX() {
         return coordenadaX;
     }
 
-    public int getCoordenadaY() {
+    public int coordenadaY() {
         return coordenadaY;
     }
 
@@ -33,8 +33,8 @@ public class Casillero {
             return false;
         } else {
             Casillero coordenada = (Casillero) obj;
-            return (this.getCoordenadaX() == coordenada.getCoordenadaX())
-                    && (this.getCoordenadaY() == coordenada.getCoordenadaY());
+            return (this.coordenadaX() == coordenada.coordenadaX())
+                    && (this.coordenadaY() == coordenada.coordenadaY());
         }
     }
 
