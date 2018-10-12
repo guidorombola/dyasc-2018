@@ -1,7 +1,9 @@
 package ar.edu.untref.dyasc;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class BatallaNaval {
 
@@ -45,6 +47,13 @@ public class BatallaNaval {
 
     public List<Barco> barcosAnclados() {
         return this.barcosAnclados;
+    }
+
+    public void aniadirBote(int i, int j) {
+        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<Casillero, Boolean>();
+        ubicacionEnTablero.put(new Casillero(i,j), false);
+        Barco bote = new Barco(ubicacionEnTablero);
+        this.barcosAnclados.add(bote);
     }
 
 }

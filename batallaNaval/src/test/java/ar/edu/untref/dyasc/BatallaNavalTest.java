@@ -21,7 +21,7 @@ public class BatallaNavalTest {
         Barco barco = new Barco(ubicacionEnTablero);
         barcosDelJuego.add(barco);
         BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
-
+        batalla.aniadirBote(4,3);
         InformeDeAtaque informe = batalla.atacar(3, 6);
 
         assertEquals(InformeDeAtaque.AGUA, informe);
