@@ -14,4 +14,21 @@ public class Barco {
         return this.ubicacionEnTablero;
     }
 
+    @Override
+    public int hashCode() {
+        return ubicacionEnTablero.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this.getClass() != obj.getClass() || obj == null) {
+            return false;
+        } else {
+            Barco barco = (Barco)obj;
+            return (this.ubicacionEnTablero.equals(barco.ubicacionEnTablero()));
+        }
+    }
+    
+    
+
 }

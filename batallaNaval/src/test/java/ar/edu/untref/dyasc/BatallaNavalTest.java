@@ -13,15 +13,9 @@ public class BatallaNavalTest {
 
     @Test
     public void atacarEnUnaPosicionDondeHayAgua() {
-        List<Barco> barcosDelJuego = new ArrayList<>();
-        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
-        ubicacionEnTablero.put(new Casillero(3, 3), false);
-        ubicacionEnTablero.put(new Casillero(3, 4), false);
-        ubicacionEnTablero.put(new Casillero(3, 5), false);
-        Barco barco = new Barco(ubicacionEnTablero);
-        barcosDelJuego.add(barco);
-        BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirBote(4,3);
+        
         InformeDeAtaque informe = batalla.atacar(3, 6);
 
         assertEquals(InformeDeAtaque.AGUA, informe);
@@ -29,12 +23,7 @@ public class BatallaNavalTest {
 
     @Test
     public void siAtacoAUnaPosicionDondeHayUnBoteLoHundo() {
-        List<Barco> barcosDelJuego = new ArrayList<>();
-        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
-        ubicacionEnTablero.put(new Casillero(3, 3), false);
-        Barco barco = new Barco(ubicacionEnTablero);
-        barcosDelJuego.add(barco);
-        BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirBote(4,3);
 
         InformeDeAtaque informe = batalla.atacar(4, 3);
@@ -44,14 +33,7 @@ public class BatallaNavalTest {
 
     @Test
     public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueNoHabiaSidoAtacadoPreviamenteCausoUnaAveria() {
-        List<Barco> barcosDelJuego = new ArrayList<>();
-        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
-        ubicacionEnTablero.put(new Casillero(3, 3), false);
-        ubicacionEnTablero.put(new Casillero(3, 4), false);
-        ubicacionEnTablero.put(new Casillero(3, 5), false);
-        Barco barco = new Barco(ubicacionEnTablero);
-        barcosDelJuego.add(barco);
-        BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
         
         InformeDeAtaque informe = batalla.atacar(4, 3);
@@ -60,16 +42,9 @@ public class BatallaNavalTest {
 
     @Test
     public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueTeniaUnAtaquePrevioVuelveADarUnInfromeDeAveria() {
-        List<Barco> barcosDelJuego = new ArrayList<>();
-        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
-        ubicacionEnTablero.put(new Casillero(3, 3), false);
-        ubicacionEnTablero.put(new Casillero(3, 4), false);
-        ubicacionEnTablero.put(new Casillero(3, 5), false);
-        Barco barco = new Barco(ubicacionEnTablero);
-        barcosDelJuego.add(barco);
-        BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        BatallaNaval batalla = new BatallaNaval();
         batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
-        
+
         batalla.atacar(4, 3);
         InformeDeAtaque informe = batalla.atacar(4, 4);
 
@@ -77,39 +52,32 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siAtacoAUnCruceroEnSusTresPosicionesSeInformaHundimiento() {
-        List<Barco> barcosDelJuego = new ArrayList<>();
-        Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
-        ubicacionEnTablero.put(new Casillero(3, 3), false);
-        ubicacionEnTablero.put(new Casillero(3, 4), false);
-        ubicacionEnTablero.put(new Casillero(3, 5), false);
-        Barco barco = new Barco(ubicacionEnTablero);
-        barcosDelJuego.add(barco);
-        BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+    public void siAtacoAUnCruceroDesplegadoHaciaAbajoEnSusTresPosicionesSeInformaHundimiento() {
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
 
-        batalla.atacar(3, 3);
-        batalla.atacar(3, 4);
-        InformeDeAtaque informe = batalla.atacar(3, 5);
+        batalla.atacar(4, 3);
+        batalla.atacar(4, 4);
+        InformeDeAtaque informe = batalla.atacar(4, 5);
 
         assertEquals(InformeDeAtaque.HUNDIDO, informe);
     }
 
     @Test
-    public void siHundoAUnBarcoDebeEliminarseDelTablero() {
-        List<Barco> barcosDelJuego = new ArrayList<>();
+    public void siHundoAUnCruceroDebeEliminarseDelTablero() {
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
-        ubicacionEnTablero.put(new Casillero(3, 3), false);
-        ubicacionEnTablero.put(new Casillero(3, 4), false);
-        ubicacionEnTablero.put(new Casillero(3, 5), false);
-        Barco barco = new Barco(ubicacionEnTablero);
-        barcosDelJuego.add(barco);
-        BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        ubicacionEnTablero.put(new Casillero(4, 3), false);
+        ubicacionEnTablero.put(new Casillero(4, 4), false);
+        ubicacionEnTablero.put(new Casillero(4, 5), false);
+        Barco barcoQueSeEsperaQueHayaSidoEliminado = new Barco(ubicacionEnTablero);
+        BatallaNaval batalla = new BatallaNaval();
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
 
-        batalla.atacar(3, 3);
-        batalla.atacar(3, 4);
-        batalla.atacar(3, 5);
+        batalla.atacar(4, 3);
+        batalla.atacar(4, 4);
+        batalla.atacar(4, 5);
 
-        assertFalse(batalla.barcosAnclados().contains(barco));
+        assertFalse(batalla.barcosAnclados().contains(barcoQueSeEsperaQueHayaSidoEliminado));
     }
 
 }
