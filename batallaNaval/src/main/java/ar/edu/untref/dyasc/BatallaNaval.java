@@ -65,15 +65,19 @@ public class BatallaNaval {
             case HACIA_ABAJO:
                 casillero2 = new Casillero(coordenadaXInicio, coordenadaYInicio+1);
                 casillero3 = new Casillero(coordenadaXInicio, coordenadaYInicio+2);
+                break;
             case HACIA_ARRIBA:
                 casillero2 = new Casillero(coordenadaXInicio, coordenadaYInicio-1);
                 casillero3 = new Casillero(coordenadaXInicio, coordenadaYInicio-2);
+                break;
             case HACIA_IZQUIERDA:
                 casillero2 = new Casillero(coordenadaXInicio-1, coordenadaYInicio);
                 casillero3 = new Casillero(coordenadaXInicio-2, coordenadaYInicio);
+                break;
             case HACIA_DERECHA:
                 casillero2 = new Casillero(coordenadaXInicio+1, coordenadaYInicio);
                 casillero3 = new Casillero(coordenadaXInicio+2, coordenadaYInicio);
+                break;
         }
         ubicacionEnTablero.put(casillero1, false);
         ubicacionEnTablero.put(casillero2, false);

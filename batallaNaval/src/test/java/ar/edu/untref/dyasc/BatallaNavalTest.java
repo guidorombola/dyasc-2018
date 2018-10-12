@@ -43,7 +43,7 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siAtacoAUnCruceroQueNoHabiaSidoAtacadoPreviamenteCausoUnaAveria() {
+    public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueNoHabiaSidoAtacadoPreviamenteCausoUnaAveria() {
         List<Barco> barcosDelJuego = new ArrayList<>();
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
         ubicacionEnTablero.put(new Casillero(3, 3), false);
@@ -59,7 +59,7 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void siAtacoAUnCruceroQueTeniaUnAtaquePrevioVuelveADarUnInfromeDeAveria() {
+    public void siAtacoAUnCruceroDesplegadoHaciaAbajoQueTeniaUnAtaquePrevioVuelveADarUnInfromeDeAveria() {
         List<Barco> barcosDelJuego = new ArrayList<>();
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
         ubicacionEnTablero.put(new Casillero(3, 3), false);
@@ -68,9 +68,10 @@ public class BatallaNavalTest {
         Barco barco = new Barco(ubicacionEnTablero);
         barcosDelJuego.add(barco);
         BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
-
-        batalla.atacar(3, 3);
-        InformeDeAtaque informe = batalla.atacar(3, 4);
+        batalla.aniadirCrucero(4, 3, DireccionDeDespliegue.HACIA_ABAJO);
+        
+        batalla.atacar(4, 3);
+        InformeDeAtaque informe = batalla.atacar(4, 4);
 
         assertEquals(InformeDeAtaque.TOCADO, informe);
     }
