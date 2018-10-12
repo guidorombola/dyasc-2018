@@ -28,15 +28,16 @@ public class BatallaNavalTest {
     }
 
     @Test
-    public void atacarEnUnaPosicionDondeHayUnBote() {
+    public void siAtacoAUnaPosicionDondeHayUnBoteLoHundo() {
         List<Barco> barcosDelJuego = new ArrayList<>();
         Map<Casillero, Boolean> ubicacionEnTablero = new HashMap<>();
         ubicacionEnTablero.put(new Casillero(3, 3), false);
         Barco barco = new Barco(ubicacionEnTablero);
         barcosDelJuego.add(barco);
         BatallaNaval batalla = new BatallaNaval(barcosDelJuego);
+        batalla.aniadirBote(4,3);
 
-        InformeDeAtaque informe = batalla.atacar(3, 3);
+        InformeDeAtaque informe = batalla.atacar(4, 3);
 
         assertEquals(InformeDeAtaque.HUNDIDO, informe);
     }
