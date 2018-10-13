@@ -21,9 +21,20 @@ public class PartidoDeTenis {
         return jugador.puntaje();
     }
 
-    public void anotar(NumeroDeJugador numeroDeJugador) {
-        Jugador jugador = jugadores.get(numeroDeJugador);
-        jugador.incrementarPuntaje();
+    public void anotar(NumeroDeJugador numeroDeJugador) {        
+        Jugador ganador = jugadores.get(numeroDeJugador);
+        Jugador perdedor = jugadores.get(NumeroDeJugador.UNO);
+        
+        if (numeroDeJugador == NumeroDeJugador.UNO) {
+            perdedor = jugadores.get(NumeroDeJugador.DOS);
+        }
+        
+        if (ganador.puntaje() == perdedor.puntaje() && ganador.puntaje() == 40) {            
+            anotarEnDeuce(ganador, perdedor);
+            
+        } else {
+            anotarNormalmente(ganador, perdedor);
+        }
     }
 
     public int obtenerGames(NumeroDeJugador numeroDeJugador) {
@@ -32,4 +43,14 @@ public class PartidoDeTenis {
         return jugador.games();
     }
 
+    public boolean estaEnVentaja(NumeroDeJugador numeroDeJugador) {
+        return true;
+    }
+    
+    private void anotarNormalmente(Jugador ganador, Jugador perdedor) {
+        ganador.incrementarPuntaje();        
+    }
+    
+    private void anotarEnDeuce(Jugador ganador, Jugador perdedor) {
+    }
 }
