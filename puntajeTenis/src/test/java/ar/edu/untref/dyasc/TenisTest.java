@@ -80,7 +80,7 @@ public class TenisTest {
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.UNO);
-        
+
         Assert.assertTrue(partido.estaEnVentaja(NumeroDeJugador.UNO));
         Assert.assertFalse(partido.estaEnVentaja(NumeroDeJugador.DOS));
     }
@@ -95,8 +95,23 @@ public class TenisTest {
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.UNO);
         partido.anotar(NumeroDeJugador.DOS);
-        
+
         Assert.assertFalse(partido.estaEnVentaja(NumeroDeJugador.UNO));
         Assert.assertTrue(partido.estaEnVentaja(NumeroDeJugador.DOS));
+    }
+
+    @Test
+    public void estandoEnDeuceElJugadorUnoAnotaDosVecesSeguidasYGanaElGame() {
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+
+        Assert.assertEquals(1, partido.obtenerGames(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerGames(NumeroDeJugador.DOS));
     }
 }

@@ -6,9 +6,9 @@ import java.util.Map;
 import ar.edu.untref.dyasc.Jugador;
 
 public class PartidoDeTenis {
-    
+
     private Map<NumeroDeJugador, Jugador> jugadores;
-    
+
     public PartidoDeTenis() {
         jugadores = new HashMap<>();
         jugadores.put(NumeroDeJugador.UNO, new Jugador());
@@ -17,21 +17,21 @@ public class PartidoDeTenis {
 
     public int obtenerPuntaje(NumeroDeJugador numeroDeJugador) {
         Jugador jugador = jugadores.get(numeroDeJugador);
-        
+
         return jugador.puntaje();
     }
 
-    public void anotar(NumeroDeJugador numeroDeJugador) {        
+    public void anotar(NumeroDeJugador numeroDeJugador) {
         Jugador ganador = jugadores.get(numeroDeJugador);
         Jugador perdedor = jugadores.get(NumeroDeJugador.UNO);
-        
+
         if (numeroDeJugador == NumeroDeJugador.UNO) {
             perdedor = jugadores.get(NumeroDeJugador.DOS);
         }
-        
-        if (ganador.puntaje() == perdedor.puntaje() && ganador.puntaje() == 40) {            
+
+        if (ganador.puntaje() == perdedor.puntaje() && ganador.puntaje() == 40) {
             anotarEnDeuce(ganador, perdedor);
-            
+
         } else {
             anotarNormalmente(ganador, perdedor);
         }
@@ -39,22 +39,29 @@ public class PartidoDeTenis {
 
     public int obtenerGames(NumeroDeJugador numeroDeJugador) {
         Jugador jugador = jugadores.get(numeroDeJugador);
-                
+
         return jugador.games();
     }
 
     public boolean estaEnVentaja(NumeroDeJugador numeroDeJugador) {
         Jugador jugador = jugadores.get(numeroDeJugador);
-        
+
         return jugador.estaEnVentaja();
     }
-    
+
     private void anotarNormalmente(Jugador ganador, Jugador perdedor) {
-        ganador.incrementarPuntaje();        
+        ganador.incrementarPuntaje();
     }
-    
+
     private void anotarEnDeuce(Jugador ganador, Jugador perdedor) {
-        ganador.establecerVentaja(true);
-        perdedor.establecerVentaja(false);
+
+        if (ganador.estaEnVentaja()) {
+            ganador.establecerVentaja(false);
+            ganador.incrementarGames();
+
+        } else {
+            ganador.establecerVentaja(true);
+            perdedor.establecerVentaja(false);
+        }
     }
 }
