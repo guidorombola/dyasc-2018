@@ -5,6 +5,7 @@ public class Jugador {
     private int[] puntajesPosibles;
     private int puntajeActual;
     private int games;
+    private boolean estaEnVentaja;
     
     public Jugador() {
         puntajesPosibles = new int[] {0, 15, 30, 40};
@@ -25,5 +26,13 @@ public class Jugador {
 
     public int games() {
         return games;
+    }
+
+    public boolean estaEnVentaja() {
+        return estaEnVentaja;
+    }
+
+    public void establecerVentaja(boolean estaEnVentaja) {
+        this.estaEnVentaja = estaEnVentaja;
     }
 }

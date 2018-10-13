@@ -70,4 +70,19 @@ public class TenisTest {
         Assert.assertEquals(0, partido.obtenerGames(NumeroDeJugador.UNO));
         Assert.assertEquals(40, partido.obtenerPuntaje(NumeroDeJugador.UNO));
     }
+
+    @Test
+    public void estandoEnDeuceElJugadorUnoAnotaYSePoneEnVentajaYElJugadorDosNo() {
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.UNO);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.DOS);
+        partido.anotar(NumeroDeJugador.UNO);
+        
+        Assert.assertTrue(partido.estaEnVentaja(NumeroDeJugador.UNO));
+        Assert.assertFalse(partido.estaEnVentaja(NumeroDeJugador.DOS));
+    }
+    
 }

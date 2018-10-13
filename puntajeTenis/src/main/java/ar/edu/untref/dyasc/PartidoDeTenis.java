@@ -44,7 +44,9 @@ public class PartidoDeTenis {
     }
 
     public boolean estaEnVentaja(NumeroDeJugador numeroDeJugador) {
-        return true;
+        Jugador jugador = jugadores.get(numeroDeJugador);
+        
+        return jugador.estaEnVentaja();
     }
     
     private void anotarNormalmente(Jugador ganador, Jugador perdedor) {
@@ -52,5 +54,6 @@ public class PartidoDeTenis {
     }
     
     private void anotarEnDeuce(Jugador ganador, Jugador perdedor) {
+        ganador.establecerVentaja(true);
     }
 }
