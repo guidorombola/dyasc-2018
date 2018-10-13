@@ -17,7 +17,7 @@ public class Jugador {
 
     public void incrementarPuntaje() {
         if (puntajeActual == this.puntajesPosibles.length - 1) {
-            puntajeActual = 0;
+            resetearPuntaje();
             games++;
         } else {
             puntajeActual++;
@@ -36,7 +36,8 @@ public class Jugador {
         this.estaEnVentaja = estaEnVentaja;
     }
 
-    public void incrementarGames() {
-        games++;
+    public void resetearPuntaje() {
+        puntajeActual = 0;
     }
+
 }

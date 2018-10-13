@@ -57,7 +57,8 @@ public class PartidoDeTenis {
 
         if (ganador.estaEnVentaja()) {
             ganador.establecerVentaja(false);
-            ganador.incrementarGames();
+            ganador.incrementarPuntaje();
+            perdedor.resetearPuntaje();
 
         } else {
             ganador.establecerVentaja(true);
