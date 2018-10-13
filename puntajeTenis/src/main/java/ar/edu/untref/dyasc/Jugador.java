@@ -5,18 +5,19 @@ public class Jugador {
     private int[] puntajesPosibles;
     private int puntajeActual;
     private int games;
-    
+    private boolean estaEnVentaja;
+
     public Jugador() {
-        puntajesPosibles = new int[] {0, 15, 30, 40};
+        puntajesPosibles = new int[] { 0, 15, 30, 40 };
     }
 
     public int puntaje() {
         return puntajesPosibles[puntajeActual];
     }
-    
+
     public void incrementarPuntaje() {
-        if(puntajeActual == this.puntajesPosibles.length - 1) {
-            puntajeActual = 0;
+        if (puntajeActual == this.puntajesPosibles.length - 1) {
+            resetearPuntaje();
             games++;
         } else {
             puntajeActual++;
@@ -26,4 +27,17 @@ public class Jugador {
     public int games() {
         return games;
     }
+
+    public boolean estaEnVentaja() {
+        return estaEnVentaja;
+    }
+
+    public void establecerVentaja(boolean estaEnVentaja) {
+        this.estaEnVentaja = estaEnVentaja;
+    }
+
+    public void resetearPuntaje() {
+        puntajeActual = 0;
+    }
+
 }
