@@ -55,5 +55,6 @@ public class PartidoDeTenis {
     
     private void anotarEnDeuce(Jugador ganador, Jugador perdedor) {
         ganador.establecerVentaja(true);
+        perdedor.establecerVentaja(false);
     }
 }
