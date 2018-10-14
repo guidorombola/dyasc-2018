@@ -28,12 +28,30 @@ public class PartidoDeTenis {
         if (numeroDeJugador == NumeroDeJugador.UNO) {
             perdedor = jugadores.get(NumeroDeJugador.DOS);
         }
+        
+        if(ganador.games() == perdedor.games() && ganador.games() == 6) {
+            anotarEnTieBreak(ganador, perdedor);
+        } else {     
+            if (ganador.puntaje() == perdedor.puntaje() && ganador.puntaje() == 40) {
+                anotarEnDeuce(ganador, perdedor);
+    
+            } else {
+                anotarNormalmente(ganador, perdedor);
+            }
+            
+            if(Math.abs((ganador.games() - perdedor.games())) >= 2 && ganador.games() >= 6){
+                ganador.incrementarSets();
+            }
+        }
+        
+    }
 
-        if (ganador.puntaje() == perdedor.puntaje() && ganador.puntaje() == 40) {
-            anotarEnDeuce(ganador, perdedor);
-
-        } else {
-            anotarNormalmente(ganador, perdedor);
+    private void anotarEnTieBreak(Jugador ganador, Jugador perdedor) {
+        ganador.incrementarPuntosTieBreak();
+        if(Math.abs(ganador.puntosDeTieBreak() - perdedor.puntosDeTieBreak()) >= 2 && ganador.puntosDeTieBreak() >= 7) {
+           ganador.incrementarSets();
+           ganador.resetearPuntosTieBreak();
+           perdedor.resetearPuntosTieBreak();
         }
     }
 
@@ -64,5 +82,11 @@ public class PartidoDeTenis {
             ganador.establecerVentaja(!perdedor.estaEnVentaja());
             perdedor.establecerVentaja(false);
         }
+    }
+
+    public int obtenerSets(NumeroDeJugador numeroDeJugador) {
+       Jugador jugador = this.jugadores.get(numeroDeJugador);
+       
+       return jugador.sets();
     }
 }
