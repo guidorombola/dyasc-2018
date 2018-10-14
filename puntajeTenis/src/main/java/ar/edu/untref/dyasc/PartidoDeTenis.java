@@ -65,4 +65,8 @@ public class PartidoDeTenis {
             perdedor.establecerVentaja(false);
         }
     }
+
+    public int obtenerSets(NumeroDeJugador numeroDeJugador) {
+        return 1;
+    }
 }

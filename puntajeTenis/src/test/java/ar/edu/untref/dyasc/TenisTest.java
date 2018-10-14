@@ -131,4 +131,15 @@ public class TenisTest {
         Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.UNO));
         Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.DOS));
     }
+    
+    @Test
+    public void elJugadorUnoGanaUnSetEnCondicionesNormales() {
+        final int anotacionesSinDeuceParaGanarUnGame = 4;
+        final int gamesAnotadosParaElJugadorUno = 6;
+        for(int i=0; i<anotacionesSinDeuceParaGanarUnGame*gamesAnotadosParaElJugadorUno; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        
+        Assert.assertEquals(1, partido.obtenerSets(NumeroDeJugador.UNO));
+    }
 }
