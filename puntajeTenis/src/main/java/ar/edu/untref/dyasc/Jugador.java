@@ -6,6 +6,7 @@ public class Jugador {
     private int puntajeActual;
     private int games;
     private boolean estaEnVentaja;
+    private int sets;
 
     public Jugador() {
         puntajesPosibles = new int[] { 0, 15, 30, 40 };
@@ -38,6 +39,14 @@ public class Jugador {
 
     public void resetearPuntaje() {
         puntajeActual = 0;
+    }
+
+    public int sets() {
+        return sets;
+    }
+
+    public void incrementarSets() {
+        sets++;
     }
 
 }

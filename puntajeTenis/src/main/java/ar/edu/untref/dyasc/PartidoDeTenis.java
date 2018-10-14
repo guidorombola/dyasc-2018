@@ -35,6 +35,10 @@ public class PartidoDeTenis {
         } else {
             anotarNormalmente(ganador, perdedor);
         }
+        
+        if(Math.abs((ganador.games() - perdedor.games())) >= 2 && ganador.games() == 6){
+            ganador.incrementarSets();
+        }
     }
 
     public int obtenerGames(NumeroDeJugador numeroDeJugador) {
@@ -67,6 +71,8 @@ public class PartidoDeTenis {
     }
 
     public int obtenerSets(NumeroDeJugador numeroDeJugador) {
-        return 1;
+       Jugador jugador = this.jugadores.get(numeroDeJugador);
+       
+       return jugador.sets();
     }
 }

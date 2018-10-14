@@ -133,7 +133,7 @@ public class TenisTest {
     }
     
     @Test
-    public void elJugadorUnoGanaUnSetEnCondicionesNormales() {
+    public void elJugadorUnoGanaSeisGamesConsecutivosYAnotaUnSet() {
         final int anotacionesSinDeuceParaGanarUnGame = 4;
         final int gamesAnotadosParaElJugadorUno = 6;
         for(int i=0; i<anotacionesSinDeuceParaGanarUnGame*gamesAnotadosParaElJugadorUno; i++) {
@@ -141,5 +141,6 @@ public class TenisTest {
         }
         
         Assert.assertEquals(1, partido.obtenerSets(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.DOS));
     }
 }
