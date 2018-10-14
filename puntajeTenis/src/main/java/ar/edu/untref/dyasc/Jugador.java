@@ -7,6 +7,7 @@ public class Jugador {
     private int games;
     private boolean estaEnVentaja;
     private int sets;
+    private int puntosDeTieBreak = 0;
 
     public Jugador() {
         puntajesPosibles = new int[] { 0, 15, 30, 40 };
@@ -47,6 +48,18 @@ public class Jugador {
 
     public void incrementarSets() {
         sets++;
+    }
+    
+    public int puntosDeTieBreak() {
+        return puntosDeTieBreak;
+    }
+    
+    public void incrementarPuntosTieBreak() {
+        puntosDeTieBreak++;
+    }
+    
+    public void resetearPuntosTieBreak() {
+        puntosDeTieBreak = 0;
     }
 
 }
