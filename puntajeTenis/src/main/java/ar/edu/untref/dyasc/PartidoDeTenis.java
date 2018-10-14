@@ -61,7 +61,7 @@ public class PartidoDeTenis {
             perdedor.resetearPuntaje();
 
         } else {
-            ganador.establecerVentaja(true);
+            ganador.establecerVentaja(!perdedor.estaEnVentaja());
             perdedor.establecerVentaja(false);
         }
     }

@@ -86,7 +86,7 @@ public class TenisTest {
     }
 
     @Test
-    public void cuandoEstanEnDeuceYElJugadorUnoAnotaElJugadorDosAnotaTambienYAhoraElSePoneEnVentaja() {
+    public void cuandoEstanEnDeuceYElJugadorUnoAnotaElJugadorDosAnotaTambienYNingunoQuedaEnVentaja() {
         partido.anotar(NumeroDeJugador.UNO);
         partido.anotar(NumeroDeJugador.UNO);
         partido.anotar(NumeroDeJugador.UNO);
@@ -97,7 +97,7 @@ public class TenisTest {
         partido.anotar(NumeroDeJugador.DOS);
 
         Assert.assertFalse(partido.estaEnVentaja(NumeroDeJugador.UNO));
-        Assert.assertTrue(partido.estaEnVentaja(NumeroDeJugador.DOS));
+        Assert.assertFalse(partido.estaEnVentaja(NumeroDeJugador.DOS));
     }
 
     @Test
