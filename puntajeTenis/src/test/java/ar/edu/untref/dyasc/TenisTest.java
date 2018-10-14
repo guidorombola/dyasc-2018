@@ -143,4 +143,35 @@ public class TenisTest {
         Assert.assertEquals(1, partido.obtenerSets(NumeroDeJugador.UNO));
         Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.DOS));
     }
+    
+    @Test
+    public void elJugadorUnoGanaUnSetPor6GamesVs4() {
+        final int anotacionesSinDeuceParaGanarUnGame = 4;
+        for(int i=0; i<anotacionesSinDeuceParaGanarUnGame*4; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        for(int i=0; i<anotacionesSinDeuceParaGanarUnGame*4; i++) {
+            partido.anotar(NumeroDeJugador.DOS);
+        }
+        for(int i=0; i<anotacionesSinDeuceParaGanarUnGame*2; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        
+        Assert.assertEquals(1, partido.obtenerSets(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.DOS));
+    }
+    
+    @Test
+    public void elJugadorDosGanaUnSetPor7GamesVs5() {
+        final int anotacionesSinDeuceParaGanarUnGame = 4;
+        for(int i=0; i<anotacionesSinDeuceParaGanarUnGame*5; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        for(int i=0; i<anotacionesSinDeuceParaGanarUnGame*7; i++) {
+            partido.anotar(NumeroDeJugador.DOS);
+        }
+        
+        Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.UNO));
+        Assert.assertEquals(1, partido.obtenerSets(NumeroDeJugador.DOS));
+    }
 }

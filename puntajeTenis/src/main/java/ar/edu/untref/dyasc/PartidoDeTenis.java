@@ -36,7 +36,7 @@ public class PartidoDeTenis {
             anotarNormalmente(ganador, perdedor);
         }
         
-        if(Math.abs((ganador.games() - perdedor.games())) >= 2 && ganador.games() == 6){
+        if(Math.abs((ganador.games() - perdedor.games())) >= 2 && ganador.games() >= 6){
             ganador.incrementarSets();
         }
     }
