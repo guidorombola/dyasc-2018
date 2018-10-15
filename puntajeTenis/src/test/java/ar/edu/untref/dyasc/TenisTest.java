@@ -281,4 +281,18 @@ public class TenisTest {
         Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.UNO));
         Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.DOS));
     }
+    
+    @Test
+    public void elJugadorUnoSumaTresSetsYGanaElPartido() {
+        int anotacionesParaElGame = 4;
+        int gamesParaElSet = 6;
+        int setsParaGanar = 3;
+        
+        for (int i = 0; i < anotacionesParaElGame * gamesParaElSet * setsParaGanar; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        
+        Assert.assertEquals(NumeroDeJugador.UNO, partido.obtenerGanador());
+    }
+    
 }

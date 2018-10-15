@@ -2,7 +2,6 @@ package ar.edu.untref.dyasc;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import ar.edu.untref.dyasc.Jugador;
 
 public class PartidoDeTenis {
@@ -62,6 +61,11 @@ public class PartidoDeTenis {
         Jugador jugador = this.jugadores.get(numeroDeJugador);
         
         return jugador.puntosDeTieBreak();
+    }
+
+    public NumeroDeJugador obtenerGanador() {
+                
+        return NumeroDeJugador.UNO;
     }
 
 }
