@@ -8,11 +8,15 @@ import ar.edu.untref.dyasc.Jugador;
 public class PartidoDeTenis {
 
     private Map<NumeroDeJugador, Jugador> jugadores;
+    private AnotadorDeSet anotadorDeSet;
+    private AnotadorDeGame anotadorDeGame;
 
     public PartidoDeTenis() {
         jugadores = new HashMap<>();
         jugadores.put(NumeroDeJugador.UNO, new Jugador());
         jugadores.put(NumeroDeJugador.DOS, new Jugador());
+        anotadorDeSet = new AnotadorDeSet();
+        anotadorDeGame = new AnotadorDeGame();
     }
 
     public int obtenerPuntaje(NumeroDeJugador numeroDeJugador) {
@@ -21,6 +25,18 @@ public class PartidoDeTenis {
         return jugador.puntaje();
     }
 
+    public int obtenerGames(NumeroDeJugador numeroDeJugador) {
+        Jugador jugador = jugadores.get(numeroDeJugador);
+        
+        return jugador.games();
+    }
+    
+    public int obtenerSets(NumeroDeJugador numeroDeJugador) {
+        Jugador jugador = this.jugadores.get(numeroDeJugador);
+        
+        return jugador.sets();
+    }
+    
     public void anotar(NumeroDeJugador numeroDeJugador) {
         Jugador ganador = jugadores.get(numeroDeJugador);
         Jugador perdedor = jugadores.get(NumeroDeJugador.UNO);
@@ -28,37 +44,12 @@ public class PartidoDeTenis {
         if (numeroDeJugador == NumeroDeJugador.UNO) {
             perdedor = jugadores.get(NumeroDeJugador.DOS);
         }
-        
-        if(ganador.games() == perdedor.games() && ganador.games() == 6) {
-            anotarEnTieBreak(ganador, perdedor);
-        } else {     
-            if (ganador.puntaje() == perdedor.puntaje() && ganador.puntaje() == 40) {
-                anotarEnDeuce(ganador, perdedor);
-    
-            } else {
-                anotarNormalmente(ganador, perdedor);
-            }
-            
-            if(Math.abs((ganador.games() - perdedor.games())) >= 2 && ganador.games() >= 6){
-                ganador.incrementarSets();
-            }
+        boolean defineTieBreak = anotadorDeSet.defineTieBreak();
+        if(!defineTieBreak) {
+            anotadorDeGame.anotar(ganador, perdedor);            
         }
+        anotadorDeSet.anotar(ganador, perdedor);
         
-    }
-
-    private void anotarEnTieBreak(Jugador ganador, Jugador perdedor) {
-        ganador.incrementarPuntosTieBreak();
-        if(Math.abs(ganador.puntosDeTieBreak() - perdedor.puntosDeTieBreak()) >= 2 && ganador.puntosDeTieBreak() >= 7) {
-           ganador.incrementarSets();
-           ganador.resetearPuntosTieBreak();
-           perdedor.resetearPuntosTieBreak();
-        }
-    }
-
-    public int obtenerGames(NumeroDeJugador numeroDeJugador) {
-        Jugador jugador = jugadores.get(numeroDeJugador);
-
-        return jugador.games();
     }
 
     public boolean estaEnVentaja(NumeroDeJugador numeroDeJugador) {
@@ -67,26 +58,4 @@ public class PartidoDeTenis {
         return jugador.estaEnVentaja();
     }
 
-    private void anotarNormalmente(Jugador ganador, Jugador perdedor) {
-        ganador.incrementarPuntaje();
-    }
-
-    private void anotarEnDeuce(Jugador ganador, Jugador perdedor) {
-
-        if (ganador.estaEnVentaja()) {
-            ganador.establecerVentaja(false);
-            ganador.incrementarPuntaje();
-            perdedor.resetearPuntaje();
-
-        } else {
-            ganador.establecerVentaja(!perdedor.estaEnVentaja());
-            perdedor.establecerVentaja(false);
-        }
-    }
-
-    public int obtenerSets(NumeroDeJugador numeroDeJugador) {
-       Jugador jugador = this.jugadores.get(numeroDeJugador);
-       
-       return jugador.sets();
-    }
 }
