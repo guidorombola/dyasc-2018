@@ -9,6 +9,7 @@ public class PartidoDeTenis {
     private Map<NumeroDeJugador, Jugador> jugadores;
     private AnotadorDeSet anotadorDeSet;
     private AnotadorDeGame anotadorDeGame;
+    private NumeroDeJugador numeroDeGanador;
 
     public PartidoDeTenis() {
         jugadores = new HashMap<>();
@@ -43,12 +44,18 @@ public class PartidoDeTenis {
         if (numeroDeJugador == NumeroDeJugador.UNO) {
             perdedor = jugadores.get(NumeroDeJugador.DOS);
         }
+        
         boolean defineTieBreak = anotadorDeSet.defineTieBreak();
-        if(!defineTieBreak) {
+        
+        if (!defineTieBreak) {
             anotadorDeGame.anotar(ganador, perdedor);            
         }
+        
         anotadorDeSet.anotar(ganador, perdedor);
         
+        if (ganador.sets() == 3) {
+            numeroDeGanador = numeroDeJugador;
+        }
     }
 
     public boolean estaEnVentaja(NumeroDeJugador numeroDeJugador) {
@@ -65,7 +72,7 @@ public class PartidoDeTenis {
 
     public NumeroDeJugador obtenerGanador() {
                 
-        return NumeroDeJugador.UNO;
+        return numeroDeGanador;
     }
 
 }

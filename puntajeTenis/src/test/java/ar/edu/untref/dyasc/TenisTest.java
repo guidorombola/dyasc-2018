@@ -295,4 +295,16 @@ public class TenisTest {
         Assert.assertEquals(NumeroDeJugador.UNO, partido.obtenerGanador());
     }
     
+    @Test
+    public void ganaElPartidoElJugadorDosCuandoSumaTresSets() {
+        int anotacionesParaElGame = 4;
+        int gamesParaElSet = 6;
+        int setsParaGanar = 3;
+        
+        for (int i = 0; i < anotacionesParaElGame * gamesParaElSet * setsParaGanar; i++) {
+            partido.anotar(NumeroDeJugador.DOS);
+        }
+        
+        Assert.assertEquals(NumeroDeJugador.DOS, partido.obtenerGanador());
+    }
 }
