@@ -58,4 +58,10 @@ public class PartidoDeTenis {
         return jugador.estaEnVentaja();
     }
 
+    public int obtenerPuntosTieBreak(NumeroDeJugador numeroDeJugador) {
+        Jugador jugador = this.jugadores.get(numeroDeJugador);
+        
+        return jugador.puntosDeTieBreak();
+    }
+
 }
