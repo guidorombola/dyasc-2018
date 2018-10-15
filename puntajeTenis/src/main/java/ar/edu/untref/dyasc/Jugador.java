@@ -2,32 +2,33 @@ package ar.edu.untref.dyasc;
 
 public class Jugador {
 
-    private int[] puntajesPosibles;
-    private int puntajeActual;
+    private int puntaje;
     private int games;
     private boolean estaEnVentaja;
     private int sets;
-    private int puntosDeTieBreak = 0;
+    private int puntosDeTieBreak;
+    private int anotacionesDelGame;
 
     public Jugador() {
-        puntajesPosibles = new int[] { 0, 15, 30, 40 };
+        puntaje = 0;
+        games = 0;
+        sets = 0;
+        puntosDeTieBreak = 0;
+        estaEnVentaja = false;
+        anotacionesDelGame = 0;
     }
 
     public int puntaje() {
-        return puntajesPosibles[puntajeActual];
-    }
-
-    public void incrementarPuntaje() {
-        if (puntajeActual == this.puntajesPosibles.length - 1) {
-            resetearPuntaje();
-            games++;
-        } else {
-            puntajeActual++;
-        }
+        return puntaje;
     }
 
     public int games() {
         return games;
+    }
+    
+    public void incrementarGamesDelSetGanados() {
+        games++;
+        puntaje = 0;
     }
 
     public boolean estaEnVentaja() {
@@ -39,7 +40,8 @@ public class Jugador {
     }
 
     public void resetearPuntaje() {
-        puntajeActual = 0;
+        puntaje = 0;
+        anotacionesDelGame = 0;
     }
 
     public int sets() {
@@ -48,6 +50,7 @@ public class Jugador {
 
     public void incrementarSets() {
         sets++;
+        resetearGamesDelSetGanados();
     }
     
     public int puntosDeTieBreak() {
@@ -60,6 +63,23 @@ public class Jugador {
     
     public void resetearPuntosTieBreak() {
         puntosDeTieBreak = 0;
+    }
+    
+    public void incrementarAnotacionesDelGame() {
+        anotacionesDelGame++;
+    }
+    
+    public int anotacionesDelGame() {
+        return anotacionesDelGame;
+    }
+    
+    public void establecerPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+    
+    public void resetearGamesDelSetGanados() {
+        games = 0;
+        puntaje = 0;
     }
 
 }

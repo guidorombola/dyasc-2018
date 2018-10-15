@@ -199,6 +199,10 @@ public class TenisTest {
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.UNO);
+        
+        Assert.assertEquals(6, partido.obtenerPuntosTieBreak(NumeroDeJugador.UNO));
+        Assert.assertEquals(3, partido.obtenerPuntosTieBreak(NumeroDeJugador.DOS));
+        
         partido.anotar(NumeroDeJugador.UNO);
         
         Assert.assertEquals(1, partido.obtenerSets(NumeroDeJugador.UNO));
@@ -233,6 +237,10 @@ public class TenisTest {
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.DOS);
+        
+        Assert.assertEquals(6, partido.obtenerPuntosTieBreak(NumeroDeJugador.UNO));
+        Assert.assertEquals(7, partido.obtenerPuntosTieBreak(NumeroDeJugador.DOS));
+        
         partido.anotar(NumeroDeJugador.DOS);
         
         Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.UNO));
@@ -268,6 +276,8 @@ public class TenisTest {
         partido.anotar(NumeroDeJugador.DOS);
         partido.anotar(NumeroDeJugador.UNO);
         
+        Assert.assertEquals(7, partido.obtenerPuntosTieBreak(NumeroDeJugador.UNO));
+        Assert.assertEquals(6, partido.obtenerPuntosTieBreak(NumeroDeJugador.DOS));
         Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.UNO));
         Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.DOS));
     }
