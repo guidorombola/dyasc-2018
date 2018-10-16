@@ -38,6 +38,11 @@ public class PartidoDeTenis {
     }
     
     public void anotar(NumeroDeJugador numeroDeJugador) {
+        
+        if (yaTermino()) {
+            throw new PartidoTerminadoException();
+        }
+        
         Jugador ganador = jugadores.get(numeroDeJugador);
         Jugador perdedor = jugadores.get(NumeroDeJugador.UNO);
 
