@@ -75,4 +75,8 @@ public class PartidoDeTenis {
         return numeroDeGanador;
     }
 
+    public boolean yaTermino() {
+        return numeroDeGanador != null;
+    }
+
 }

@@ -307,4 +307,30 @@ public class TenisTest {
         
         Assert.assertEquals(NumeroDeJugador.DOS, partido.obtenerGanador());
     }
+    
+    @Test
+    public void cuandoUnoDeLosJugadoresGanaElPartidoTermina() {
+        int anotacionesParaElGame = 4;
+        int gamesParaElSet = 6;
+        int setsParaGanar = 3;
+        
+        for (int i = 0; i < anotacionesParaElGame * gamesParaElSet * setsParaGanar; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        
+        Assert.assertTrue(partido.yaTermino());
+    }
+    
+//    @Test(expected = PartidoFinalizadoException.class)
+//    public void siUnoDeLosJugadoresGanaNoPuedenAnotarOtraVez() {
+//        int anotacionesParaElGame = 4;
+//        int gamesParaElSet = 6;
+//        int setsParaGanar = 3;
+//        
+//        for (int i = 0; i < anotacionesParaElGame * gamesParaElSet * setsParaGanar; i++) {
+//            partido.anotar(NumeroDeJugador.UNO);
+//        }
+//        
+//        partido.anotar(NumeroDeJugador.UNO);
+//    }
 }
