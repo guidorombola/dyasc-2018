@@ -27,37 +27,37 @@ public class PartidoDeTenis {
 
     public int obtenerGames(NumeroDeJugador numeroDeJugador) {
         Jugador jugador = jugadores.get(numeroDeJugador);
-        
+
         return jugador.games();
     }
-    
+
     public int obtenerSets(NumeroDeJugador numeroDeJugador) {
         Jugador jugador = this.jugadores.get(numeroDeJugador);
-        
+
         return jugador.sets();
     }
-    
+
     public void anotar(NumeroDeJugador numeroDeJugador) {
-        
+
         if (yaTermino()) {
             throw new PartidoTerminadoException();
         }
-        
+
         Jugador ganador = jugadores.get(numeroDeJugador);
         Jugador perdedor = jugadores.get(NumeroDeJugador.UNO);
 
         if (numeroDeJugador == NumeroDeJugador.UNO) {
             perdedor = jugadores.get(NumeroDeJugador.DOS);
         }
-        
+
         boolean defineTieBreak = anotadorDeSet.defineTieBreak();
-        
+
         if (!defineTieBreak) {
-            anotadorDeGame.anotar(ganador, perdedor);            
+            anotadorDeGame.anotar(ganador, perdedor);
         }
-        
+
         anotadorDeSet.anotar(ganador, perdedor);
-        
+
         if (ganador.sets() == 3) {
             numeroDeGanador = numeroDeJugador;
         }
@@ -71,12 +71,12 @@ public class PartidoDeTenis {
 
     public int obtenerPuntosTieBreak(NumeroDeJugador numeroDeJugador) {
         Jugador jugador = this.jugadores.get(numeroDeJugador);
-        
+
         return jugador.puntosDeTieBreak();
     }
 
     public NumeroDeJugador obtenerGanador() {
-                
+
         return numeroDeGanador;
     }
 
@@ -86,7 +86,7 @@ public class PartidoDeTenis {
 
     public void reiniciar() {
         numeroDeGanador = null;
-        
+
         for (Jugador jugador : jugadores.values()) {
             jugador.resetearTodo();
         }
