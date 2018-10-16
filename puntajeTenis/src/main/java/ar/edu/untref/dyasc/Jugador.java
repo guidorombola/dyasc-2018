@@ -25,7 +25,7 @@ public class Jugador {
     public int games() {
         return games;
     }
-    
+
     public void incrementarGamesDelSetGanados() {
         games++;
         puntaje = 0;
@@ -52,34 +52,42 @@ public class Jugador {
         sets++;
         resetearGamesDelSetGanados();
     }
-    
+
     public int puntosDeTieBreak() {
         return puntosDeTieBreak;
     }
-    
+
     public void incrementarPuntosTieBreak() {
         puntosDeTieBreak++;
     }
-    
+
     public void resetearPuntosTieBreak() {
         puntosDeTieBreak = 0;
     }
-    
+
     public void incrementarAnotacionesDelGame() {
         anotacionesDelGame++;
     }
-    
+
     public int anotacionesDelGame() {
         return anotacionesDelGame;
     }
-    
+
     public void establecerPuntaje(int puntaje) {
         this.puntaje = puntaje;
     }
-    
+
     public void resetearGamesDelSetGanados() {
         games = 0;
         puntaje = 0;
+    }
+
+    public void resetearTodo() {
+        resetearPuntaje();
+        resetearGamesDelSetGanados();
+        resetearPuntosTieBreak();
+        sets = 0;
+        establecerVentaja(false);
     }
 
 }
