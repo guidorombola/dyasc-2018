@@ -342,7 +342,7 @@ public class TenisTest {
     }
     
     @Test
-    public void cuandoElPartidoSeReseteaTodosLosPuntajesDeLosJugadoresVuelvenACero() {
+    public void cuandoElPartidoSeReiniciaTodosLosPuntajesDeLosJugadoresVuelvenACero() {
         int anotacionesParaElGame = 4;
         int gamesParaElSet = 6;
         int setsParaGanar = 3;
@@ -362,4 +362,5 @@ public class TenisTest {
         Assert.assertEquals(0, partido.obtenerPuntosTieBreak(NumeroDeJugador.UNO));
         Assert.assertEquals(0, partido.obtenerPuntosTieBreak(NumeroDeJugador.DOS));
     }
+    
 }

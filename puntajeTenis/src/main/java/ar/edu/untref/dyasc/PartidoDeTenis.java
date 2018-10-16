@@ -87,7 +87,7 @@ public class PartidoDeTenis {
     public void reiniciar() {
         
         for (Jugador jugador : jugadores.values()) {
-            jugador.reiniciar();
+            jugador.resetearTodo();
         }
     }
 
