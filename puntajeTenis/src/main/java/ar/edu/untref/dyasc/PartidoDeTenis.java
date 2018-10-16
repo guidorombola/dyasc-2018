@@ -85,6 +85,7 @@ public class PartidoDeTenis {
     }
 
     public void reiniciar() {
+        numeroDeGanador = null;
         
         for (Jugador jugador : jugadores.values()) {
             jugador.resetearTodo();

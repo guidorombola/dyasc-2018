@@ -363,4 +363,18 @@ public class TenisTest {
         Assert.assertEquals(0, partido.obtenerPuntosTieBreak(NumeroDeJugador.DOS));
     }
     
+    @Test
+    public void siElPartidoSeTerminaYSeReiniciaElJugadorQueGanoDejaDeSerGanador() {
+        int anotacionesParaElGame = 4;
+        int gamesParaElSet = 6;
+        int setsParaGanar = 3;
+        
+        for (int i = 0; i < anotacionesParaElGame * gamesParaElSet * setsParaGanar; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        
+        partido.reiniciar();
+        
+        Assert.assertNull(partido.obtenerGanador());
+    }
 }
