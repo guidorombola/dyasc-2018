@@ -84,4 +84,11 @@ public class PartidoDeTenis {
         return numeroDeGanador != null;
     }
 
+    public void reiniciar() {
+        
+        for (Jugador jugador : jugadores.values()) {
+            jugador.reiniciar();
+        }
+    }
+
 }

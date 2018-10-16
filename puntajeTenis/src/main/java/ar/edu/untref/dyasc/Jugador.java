@@ -82,4 +82,12 @@ public class Jugador {
         puntaje = 0;
     }
 
+    public void reiniciar() {
+        resetearPuntaje();
+        resetearGamesDelSetGanados();
+        resetearPuntosTieBreak();
+        sets = 0;
+        establecerVentaja(false);
+    }
+
 }

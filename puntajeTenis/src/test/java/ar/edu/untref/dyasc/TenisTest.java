@@ -341,4 +341,25 @@ public class TenisTest {
         partido.anotar(NumeroDeJugador.UNO);
     }
     
+    @Test
+    public void cuandoElPartidoSeReseteaTodosLosPuntajesDeLosJugadoresVuelvenACero() {
+        int anotacionesParaElGame = 4;
+        int gamesParaElSet = 6;
+        int setsParaGanar = 3;
+        
+        for (int i = 0; i < anotacionesParaElGame * gamesParaElSet * setsParaGanar; i++) {
+            partido.anotar(NumeroDeJugador.UNO);
+        }
+        
+        partido.reiniciar();
+        
+        Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerPuntaje(NumeroDeJugador.DOS));
+        Assert.assertEquals(0, partido.obtenerGames(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerGames(NumeroDeJugador.DOS));
+        Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerSets(NumeroDeJugador.DOS));
+        Assert.assertEquals(0, partido.obtenerPuntosTieBreak(NumeroDeJugador.UNO));
+        Assert.assertEquals(0, partido.obtenerPuntosTieBreak(NumeroDeJugador.DOS));
+    }
 }
