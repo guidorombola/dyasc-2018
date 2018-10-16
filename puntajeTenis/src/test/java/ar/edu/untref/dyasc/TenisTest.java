@@ -321,6 +321,13 @@ public class TenisTest {
         Assert.assertTrue(partido.yaTermino());
     }
     
+    @Test
+    public void siTodaviaNoHayUnJugadorQueGanoElPartidoNoTermino() {
+        partido.anotar(NumeroDeJugador.DOS);
+        
+        Assert.assertFalse(partido.yaTermino());
+    }
+    
 //    @Test(expected = PartidoFinalizadoException.class)
 //    public void siUnoDeLosJugadoresGanaNoPuedenAnotarOtraVez() {
 //        int anotacionesParaElGame = 4;
