@@ -19,6 +19,6 @@ hs_err_pid*
 /.metadata/
 .classpath
 .project
-
+/.idea/
 # archivos de texto de salida del programa
 *.txt
