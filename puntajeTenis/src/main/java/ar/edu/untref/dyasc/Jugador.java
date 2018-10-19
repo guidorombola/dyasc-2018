@@ -26,54 +26,53 @@ public class Jugador {
         return games;
     }
 
-    public void incrementarGamesDelSetGanados() {
-        games++;
-    }
-
     public boolean estaEnVentaja() {
         return estaEnVentaja;
-    }
-
-    public void establecerVentaja(boolean estaEnVentaja) {
-        this.estaEnVentaja = estaEnVentaja;
-    }
-
-    public void resetearPuntaje() {
-        puntaje = 0;
-        anotacionesDelGame = 0;
     }
 
     public int sets() {
         return sets;
     }
 
-    public void incrementarSets() {
-        sets++;
-        resetearGamesDelSetGanados();
-    }
-
     public int puntosDeTieBreak() {
         return puntosDeTieBreak;
-    }
-
-    public void incrementarPuntosTieBreak() {
-        puntosDeTieBreak++;
-    }
-
-    public void resetearPuntosTieBreak() {
-        puntosDeTieBreak = 0;
-    }
-
-    public void incrementarAnotacionesDelGame() {
-        anotacionesDelGame++;
     }
 
     public int anotacionesDelGame() {
         return anotacionesDelGame;
     }
 
+    public void establecerVentaja(boolean estaEnVentaja) {
+        this.estaEnVentaja = estaEnVentaja;
+    }
+
     public void establecerPuntaje(int puntaje) {
         this.puntaje = puntaje;
+    }
+
+    public void incrementarSets() {
+        sets++;
+    }
+
+    public void incrementarPuntosTieBreak() {
+        puntosDeTieBreak++;
+    }
+
+    public void incrementarAnotacionesDelGame() {
+        anotacionesDelGame++;
+    }
+
+    public void incrementarGamesDelSetGanados() {
+        games++;
+    }
+
+    public void resetearPuntosTieBreak() {
+        puntosDeTieBreak = 0;
+    }
+
+    public void resetearPuntaje() {
+        puntaje = 0;
+        anotacionesDelGame = 0;
     }
 
     public void resetearGamesDelSetGanados() {
