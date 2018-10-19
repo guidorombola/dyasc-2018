@@ -28,7 +28,6 @@ public class Jugador {
 
     public void incrementarGamesDelSetGanados() {
         games++;
-        puntaje = 0;
     }
 
     public boolean estaEnVentaja() {
@@ -79,7 +78,6 @@ public class Jugador {
 
     public void resetearGamesDelSetGanados() {
         games = 0;
-        puntaje = 0;
     }
 
     public void resetearTodo() {

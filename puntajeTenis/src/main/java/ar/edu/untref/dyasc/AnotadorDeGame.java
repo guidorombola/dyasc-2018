@@ -20,6 +20,7 @@ public class AnotadorDeGame {
         if (jugadorQueAnota.estaEnVentaja()) {
             jugadorQueAnota.incrementarGamesDelSetGanados();
             jugadorQueAnota.establecerVentaja(false);
+            jugadorQueAnota.resetearPuntaje();
             jugadorAdversario.resetearPuntaje();
         } else {
             jugadorQueAnota.establecerVentaja(!jugadorAdversario.estaEnVentaja());
@@ -29,9 +30,9 @@ public class AnotadorDeGame {
 
     public void anotarNormalmente(Jugador jugadorQueAnota, Jugador jugadorAdversario) {
         if (jugadorQueAnota.puntaje() == 40) {
+            jugadorQueAnota.incrementarGamesDelSetGanados();
             jugadorQueAnota.resetearPuntaje();
             jugadorAdversario.resetearPuntaje();
-            jugadorQueAnota.incrementarGamesDelSetGanados();
         } else {
             jugadorQueAnota.incrementarAnotacionesDelGame();
             jugadorQueAnota.establecerPuntaje(puntajesPosibles[jugadorQueAnota.anotacionesDelGame()]);

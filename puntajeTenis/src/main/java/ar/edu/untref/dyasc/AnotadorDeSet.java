@@ -17,6 +17,7 @@ public class AnotadorDeSet {
         } else {
             if (Math.abs((jugadorQueAnota.games() - jugadorAdversario.games())) >= 2 && jugadorQueAnota.games() >= 6) {
                 jugadorQueAnota.incrementarSets();
+                jugadorQueAnota.resetearGamesDelSetGanados();
                 jugadorAdversario.resetearGamesDelSetGanados();
             }
         }
@@ -28,6 +29,7 @@ public class AnotadorDeSet {
         if (Math.abs(jugadorQueAnota.puntosDeTieBreak() - jugadorAdversario.puntosDeTieBreak()) >= 2
                 && jugadorQueAnota.puntosDeTieBreak() >= 7) {
             jugadorQueAnota.incrementarSets();
+            jugadorQueAnota.resetearGamesDelSetGanados();
             jugadorAdversario.resetearGamesDelSetGanados();
             jugadorQueAnota.resetearPuntosTieBreak();
             jugadorAdversario.resetearPuntosTieBreak();
